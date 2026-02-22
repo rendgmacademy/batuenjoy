@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="id" data-bs-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tentang Kami – Outbound Batu Let's Go</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <style>
+        :root {
+            --primary: #0f4d35;
+            --primary-light: #1a6b4a;
+            --primary-ultra: #e6f2ec;
+            --accent: #e8a020;
+            --dark: #0a0f14;
+            --muted: #6b7280;
+            --border: #e5e7eb;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #1f2937;
+            background: #f9fafb;
+            overflow-x: hidden
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: 'DM Serif Display', serif
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background: rgba(255, 255, 255, .93) !important;
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0
+        }
+
+        .navbar-brand {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            font-size: 1.15rem;
+            color: #111 !important;
+            display: flex;
+            align-items: center;
+            gap: .5rem
+        }
+
+        .brand-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: .9rem
+        }
+
+        .nav-link {
+            font-weight: 600;
+            font-size: .88rem;
+            color: var(--muted) !important;
+            padding: .4rem .9rem !important;
+            border-radius: 100px;
+            transition: .2s
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary) !important;
+            background: var(--primary-ultra)
+        }
+
+        .btn-nav {
+            background: var(--primary);
+            color: #fff !important;
+            font-weight: 700;
+            font-size: .82rem;
+            padding: .55rem 1.3rem !important;
+            border-radius: 100px;
+            letter-spacing: .04em;
+            transition: .2s
+        }
+
+        .btn-nav:hover {
+            background: var(--primary-light);
+            box-shadow: 0 6px 20px rgba(15, 77, 53, .35);
+            transform: translateY(-1px)
+        }
+
+        .dark-toggle {
+            width: 36px;
+            height: 36px;
+            border: none;
+            background: var(--primary-ultra);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1rem;
+            cursor: pointer;
+            transition: .2s
+        }
+
+        .dark-toggle:hover {
+            background: #c7ddd4
+        }
+
+        /* HERO */
+        .page-hero {
+            position: relative;
+            height: 55vh;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            background: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDuLl-oYm3-rLcBWUUr8FKiNilei4nxghUipb_HUKpow5zpjNfi0rYjKeZrgtOdMZbjJ8asKzrlS8wYGlf44hgnNjLufbPDMG08ipv8eTeljbP1VauEgUFnC9ZIwcOzojL-2CBw1R1M-YFmQnIp5jLhf_qV2MAQLOy2z0ePwJII1tvjyUi09z5liHaeJR4UHg3u1Cfposh-Lcj8K3KzF3tilR8M-V_gQHfB_XX66yjWJExF6OrOb5LF74yiincqgRBrrqEn3tZ4R1Za') center/cover;
+            overflow: hidden
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(10, 40, 25, .85) 0%, rgba(10, 40, 25, .55) 100%)
+        }
+
+        .hero-pill {
+            display: inline-block;
+            background: rgba(255, 255, 255, .12);
+            border: 1px solid rgba(255, 255, 255, .25);
+            backdrop-filter: blur(8px);
+            color: #fff;
+            padding: .4rem 1rem;
+            border-radius: 100px;
+            font-size: .78rem;
+            font-weight: 600;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            margin-bottom: 1.25rem
+        }
+
+        /* SECTION LABEL */
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            color: var(--accent);
+            font-weight: 700;
+            font-size: .78rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            margin-bottom: .75rem
+        }
+
+        .section-label::before {
+            content: '';
+            width: 24px;
+            height: 2px;
+            background: var(--accent);
+            border-radius: 2px
+        }
+
+        /* ABOUT */
+        .about-img {
+            border-radius: 1.25rem;
+            width: 100%;
+            height: 430px;
+            object-fit: cover;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, .14)
+        }
+
+        .quote-overlay {
+            position: absolute;
+            bottom: -1.5rem;
+            left: 1.5rem;
+            right: 1.5rem;
+            background: var(--primary);
+            border-radius: .75rem;
+            padding: 1.2rem 1.5rem;
+            color: #fff;
+            font-style: italic;
+            font-size: .88rem;
+            line-height: 1.65;
+            box-shadow: 0 8px 25px rgba(15, 77, 53, .4)
+        }
+
+        .check-item {
+            display: flex;
+            align-items: flex-start;
+            gap: .9rem;
+            margin-bottom: 1rem
+        }
+
+        .check-icon {
+            width: 30px;
+            height: 30px;
+            background: var(--primary-ultra);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: .85rem;
+            flex-shrink: 0;
+            margin-top: .1rem
+        }
+
+        /* VISION */
+        .vision-section {
+            background: var(--primary);
+            position: relative;
+            overflow: hidden
+        }
+
+        .vision-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,.06)"/></svg>') repeat
+        }
+
+        .vision-card {
+            background: #fff;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, .1);
+            transition: transform .3s, box-shadow .3s;
+            height: 100%
+        }
+
+        .vision-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, .15)
+        }
+
+        .vision-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            margin-bottom: 1.2rem
+        }
+
+        .tag-pill {
+            display: inline-block;
+            background: var(--primary-ultra);
+            color: var(--primary);
+            font-size: .72rem;
+            font-weight: 700;
+            padding: .25rem .75rem;
+            border-radius: 100px;
+            margin: .2rem
+        }
+
+        /* TEAM */
+        .team-section {
+            background: #fff
+        }
+
+        .team-card {
+            border-radius: 1.25rem;
+            overflow: hidden;
+            background: #f9fafb;
+            border: 1px solid var(--border);
+            transition: transform .3s, box-shadow .3s;
+            height: 100%
+        }
+
+        .team-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, .12)
+        }
+
+        .team-img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            transition: transform .5s
+        }
+
+        .team-card:hover .team-img {
+            transform: scale(1.05)
+        }
+
+        .team-body {
+            padding: 1.3rem;
+            text-align: center
+        }
+
+        .team-body h6 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            font-size: 1rem;
+            margin-bottom: .2rem
+        }
+
+        .team-body p {
+            font-size: .82rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin: 0
+        }
+
+        /* GALLERY */
+        .gallery-item {
+            border-radius: 1rem;
+            overflow: hidden;
+            position: relative
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .5s
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05)
+        }
+
+        /* STATS */
+        .stats-bar {
+            background: var(--primary)
+        }
+
+        .stat-num {
+            font-family: 'DM Serif Display', serif;
+            font-size: 3rem;
+            line-height: 1;
+            color: #fff
+        }
+
+        .stat-lbl {
+            font-size: .78rem;
+            color: rgba(255, 255, 255, .7);
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            margin-top: .4rem
+        }
+
+        /* CTA */
+        .cta-section {
+            background: linear-gradient(135deg, var(--accent) 0%, #e8621a 100%)
+        }
+
+        .btn-cta-w {
+            display: inline-flex;
+            align-items: center;
+            gap: .6rem;
+            background: #fff;
+            color: var(--accent);
+            font-weight: 800;
+            padding: 1rem 2.4rem;
+            border-radius: 100px;
+            font-size: 1rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, .2);
+            transition: .2s;
+            border: none
+        }
+
+        .btn-cta-w:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, .3);
+            color: var(--accent)
+        }
+
+        /* FOOTER */
+        .footer {
+            background: #0a0f14;
+            color: rgba(255, 255, 255, .6)
+        }
+
+        .footer h5 {
+            color: #fff;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            font-size: 1rem
+        }
+
+        .footer ul {
+            list-style: none;
+            padding: 0
+        }
+
+        .footer ul li a {
+            color: rgba(255, 255, 255, .55);
+            font-size: .875rem;
+            transition: .2s
+        }
+
+        .footer ul li a:hover {
+            color: var(--accent)
+        }
+
+        .footer p {
+            font-size: .855rem;
+            color: rgba(255, 255, 255, .5);
+            line-height: 1.75
+        }
+
+        .social-btn {
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, .07);
+            border-radius: 9px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, .6);
+            font-size: .9rem;
+            transition: .2s
+        }
+
+        .social-btn:hover {
+            background: var(--primary);
+            color: #fff
+        }
+
+        .footer-divider {
+            border-color: rgba(255, 255, 255, .08)
+        }
+
+        .footer-ci {
+            font-size: .78rem;
+            color: rgba(255, 255, 255, .35)
+        }
+
+        .fc-item {
+            display: flex;
+            align-items: flex-start;
+            gap: .7rem;
+            font-size: .855rem;
+            margin-bottom: .7rem
+        }
+
+        .fc-icon {
+            color: var(--accent);
+            flex-shrink: 0;
+            margin-top: .15rem
+        }
+
+
+
+        /* DARK */
+        [data-bs-theme="dark"] body {
+            background: #0d1117;
+            color: #e5e7eb
+        }
+
+        [data-bs-theme="dark"] .navbar {
+            background: rgba(13, 17, 23, .95) !important;
+            border-bottom-color: rgba(255, 255, 255, .08)
+        }
+
+        [data-bs-theme="dark"] .navbar-brand {
+            color: #fff !important
+        }
+
+        [data-bs-theme="dark"] .team-section {
+            background: #111827
+        }
+
+        [data-bs-theme="dark"] .team-card {
+            background: #1f2937;
+            border-color: rgba(255, 255, 255, .08)
+        }
+
+        [data-bs-theme="dark"] .vision-card {
+            background: #1f2937;
+            color: #e5e7eb
+        }
+
+        [data-bs-theme="dark"] .nav-link {
+            color: rgba(255, 255, 255, .6) !important
+        }
+
+        [data-bs-theme="dark"] .dark-toggle {
+            background: rgba(255, 255, 255, .08);
+            color: rgba(255, 255, 255, .75)
+        }
+
+        /* ───── RESPONSIVE ───── */
+        @media (max-width: 991px) {
+            .page-hero {
+                height: auto;
+                min-height: 350px;
+                padding: 4rem 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding-top: 4rem !important;
+                padding-bottom: 4rem !important;
+            }
+
+            .about-img {
+                height: 320px;
+            }
+
+            .quote-overlay {
+                bottom: -1rem;
+                left: .5rem;
+                right: .5rem;
+                padding: 1rem;
+                font-size: .8rem;
+            }
+
+            .floating-buttons {
+                bottom: 1.25rem;
+                right: 1.25rem;
+                gap: 0.75rem;
+            }
+
+            .wa-float {
+                width: 50px;
+                height: 50px;
+                font-size: 1.4rem;
+            }
+
+            .top-float {
+                width: 42px;
+                height: 42px;
+                font-size: 1rem;
+            }
+        }
+
+        /* ───── FLOATING BUTTONS ───── */
+        .floating-buttons {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 1050;
+        }
+
+        .wa-float {
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.8rem;
+            box-shadow: 0 6px 25px rgba(37, 211, 102, .4);
+            transition: all .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .wa-float:hover {
+            transform: scale(1.1) translateY(-3px);
+            box-shadow: 0 12px 35px rgba(37, 211, 102, .5);
+            color: #fff;
+        }
+
+        .top-float {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all .3s ease;
+            opacity: 0;
+            visibility: hidden;
+            cursor: pointer;
+        }
+
+        .top-float.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .top-float:hover {
+            background: var(--primary);
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(15, 77, 53, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <div class="brand-icon"><i class="bi bi-tree-fill"></i></div>
+                Outbound Batu Let's Go
+            </a>
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav mx-auto gap-1">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">Tentang Kami</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Paket</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-3 mt-3 mt-lg-0">
+                    <button class="dark-toggle" onclick="toggleDark()"><i class="bi bi-moon-fill"
+                            id="darkIcon"></i></button>
+                    <a href="https://wa.me/62895639068080" target="_blank" class="btn-nav">HUBUNGI KAMI</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="page-hero">
+        <div class="container position-relative" style="z-index:2">
+            <div class="hero-pill">Sejak 2012</div>
+            <h1 class="text-white"
+                style="font-size:clamp(2rem,5vw,3.8rem);letter-spacing:-.02em;max-width:680px;line-height:1.1">
+                Membangun Tim Hebat di Alam Terbuka
+            </h1>
+            <p class="mt-3" style="color:rgba(255,255,255,.8);max-width:540px;line-height:1.75">Lebih dari sekadar
+                liburan – kami menciptakan pengalaman outbound yang mempererat ikatan dan membangun karakter.</p>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="py-5 bg-white" style="padding-top:5.5rem!important;padding-bottom:5.5rem!important">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-5 fade-up">
+                    <div class="position-relative pb-4 pe-4">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD57TCnMaLefEuUOY_YTiYzxA2cR5vNHY6UvNP-mQG8-34r07gpzNCNBfH2oGDi2F8vR1ss3obO4Dn-E-uAMztIxBjcr9JpdVrBahtQ7aXQZFxqG6l1HtiYbuGzV8LJ_NeFY5WJEZIcDss-2u6YwmoZtAe_ZeI0mPU94zkjI6vNAA6Z1AvAsAJOrAv2hYIzUa0QPWL8RGbqVIrlcGITTUc1t1QuPPAYofrWWqWmTL3MydMZWgASA8BzK0RFfTvVqJH-3kzLxSoc3-QT"
+                            alt="Tim" class="about-img" />
+                        <div class="quote-overlay">
+                            <i class="bi bi-quote fs-4 me-2 opacity-50"></i>
+                            "Kebersamaan adalah awal. Menjaga kebersamaan adalah kemajuan. Bekerja sama adalah
+                            keberhasilan."
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7 fade-up">
+                    <div class="section-label">Cerita Kami</div>
+                    <h2 class="mb-4">Dedikasi 10+ Tahun untuk<br>Pariwisata Batu</h2>
+                    <p class="text-muted mb-3">Berawal dari kecintaan sekelompok pemuda lokal terhadap alam Batu yang
+                        memukau, Outbound Batu didirikan pada tahun 2012 dengan misi sederhana: memperkenalkan keindahan
+                        Batu melalui kegiatan yang positif dan bermakna.</p>
+                    <p class="text-muted mb-4">Kini, kami telah berkembang menjadi salah satu vendor outbound terpercaya
+                        di Jawa Timur, melayani ribuan klien mulai dari perusahaan multinasional, instansi pemerintah,
+                        hingga keluarga besar.</p>
+                    <div class="check-item">
+                        <div class="check-icon"><i class="bi bi-shield-fill-check"></i></div>
+                        <div><strong>Berizin Resmi</strong> – Legalitas CV lengkap dan terdaftar resmi.</div>
+                    </div>
+                    <div class="check-item">
+                        <div class="check-icon"><i class="bi bi-award-fill"></i></div>
+                        <div><strong>Fasilitator Bersertifikat BNSP</strong> – Pemandu tersertifikasi nasional.</div>
+                    </div>
+                    <div class="check-item">
+                        <div class="check-icon"><i class="bi bi-stars"></i></div>
+                        <div><strong>Pengalaman 10+ Tahun</strong> – Dipercaya oleh 50+ perusahaan klien.</div>
+                    </div>
+                    <a href="#" class="btn mt-3 px-4 py-2 rounded-pill fw-bold"
+                        style="border:2px solid var(--primary);color:var(--primary);transition:.2s"
+                        onmouseover="this.style.background='var(--primary)';this.style.color='#fff'"
+                        onmouseout="this.style.background='';this.style.color='var(--primary)'">Lihat Paket Kami</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VISION & MISSION -->
+    <section class="vision-section py-5" style="padding-top:5rem!important;padding-bottom:5rem!important">
+        <div class="container position-relative" style="z-index:1">
+            <div class="text-center mb-5 fade-up">
+                <h2 class="text-white">Visi &amp; Misi Kami</h2>
+                <p style="color:rgba(255,255,255,.75);max-width:520px;margin:auto">Komitmen kami untuk memberikan
+                    standar pelayanan tertinggi dalam setiap petualangan yang kami sajikan.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4 fade-up">
+                    <div class="vision-card">
+                        <div class="vision-icon" style="background:#fff3e0"><i class="bi bi-eye-fill"
+                                style="color:#e8a020;font-size:1.4rem"></i></div>
+                        <h5>Visi</h5>
+                        <p class="text-muted" style="font-size:.88rem;line-height:1.75">Menjadi penyedia layanan wisata
+                            dan outbound nomor satu di Indonesia yang mengedepankan edukasi, konservasi alam, dan
+                            pemberdayaan masyarakat lokal.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 fade-up">
+                    <div class="vision-card">
+                        <div class="vision-icon" style="background:#e8f4fd"><i class="bi bi-flag-fill"
+                                style="color:#1d6faa;font-size:1.4rem"></i></div>
+                        <h5>Misi</h5>
+                        <ul class="text-muted" style="font-size:.88rem;line-height:2;padding-left:1.2rem">
+                            <li>Menyediakan program outbound yang inovatif</li>
+                            <li>Menjamin keselamatan (Zero Accident)</li>
+                            <li>Memberikan pelayanan ramah dan profesional</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4 fade-up">
+                    <div class="vision-card">
+                        <div class="vision-icon" style="background:var(--primary-ultra)"><i class="bi bi-heart-fill"
+                                style="color:var(--primary);font-size:1.4rem"></i></div>
+                        <h5>Nilai (Values)</h5>
+                        <p class="text-muted mb-3" style="font-size:.88rem">Prinsip yang menjadi fondasi seluruh layanan
+                            kami:</p>
+                        <div>
+                            <span class="tag-pill">Safety</span>
+                            <span class="tag-pill">Fun</span>
+                            <span class="tag-pill">Teamwork</span>
+                            <span class="tag-pill">Integrity</span>
+                            <span class="tag-pill">Excellence</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM -->
+    <section class="team-section py-5" style="padding-top:5.5rem!important;padding-bottom:5.5rem!important">
+        <div class="container">
+            <div class="text-center mb-5 fade-up">
+                <div class="section-label">Tim Profesional</div>
+                <h2>Bertemu dengan Para Ahli</h2>
+                <p class="text-muted" style="max-width:520px;margin:auto">Tim kami terdiri dari fasilitator
+                    bersertifikat, pemandu lokal berpengalaman, dan ahli keselamatan.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-6 col-lg-3 fade-up">
+                    <div class="team-card">
+                        <div style="overflow:hidden"><img
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzxuLKxNqHyYUXMIIeDDmIItuha_c1lwroDGJ1ZPB05xhCpDDPNvVNKsleaa_sHSWARb-IZWhnSMpJcCPefWMrsgYAql-ko0CQThTUYNatBUPhTPbl1Z0Ve0SoUecsBXkL5LLzKoF7xq0yDuThKAXllrL2FEIKXwZGX7w1c0zzNLQx3i7nyLdTwpy2Iy5gb9Skkbo66lMX61jMR3XmixWzEtHSc6m2NYfq4pj5nWnTj0NSD4l-ByM-Oduv7FOzFDRmY3R3X3CKcSjJ"
+                                alt="Budi" class="team-img" /></div>
+                        <div class="team-body">
+                            <h6>Budi Santoso</h6>
+                            <p>Founder &amp; Master Trainer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3 fade-up">
+                    <div class="team-card">
+                        <div style="overflow:hidden"><img
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBt1e0EHUwdvA72kvKJXBiT_DiPvICQFBsk0t1Bjkm1eG1UJtn0Z_JhcPsBDjHhD2CGlTRIzKHnWzMoJC6iE2Gdu8sKUmPvKCOwvDpID79s4hhW6zuPw-Ya29f804hUN5-foF0K9IPh86MmpwFmDMfDhMvJs7djNtOP00FI_L-cuJv4fB7Cri8yFzrAqrA9wQVVadV20qaUUq3X_OXf6YWPDUbjdfeQ_RhneOK26Bta938bNv5U-ZKbKXWBmBLOtE92-1j8t9kC_F7n"
+                                alt="Siti" class="team-img" /></div>
+                        <div class="team-body">
+                            <h6>Siti Aminah</h6>
+                            <p>Head of Operations</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3 fade-up">
+                    <div class="team-card">
+                        <div style="overflow:hidden"><img
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZdid_gManJeLWq3DZTkn1JuzB7JYuHFqM2zO6UG5oSfN7PFSbYfJJwmVQsl_42fEW94nQEppjBty30htzzDt_gMaPDn0reStirSowhiJ1sotUQ3Gxou0lPCy_LY70BuR1iaxUN0x966jU40pKVf59qFHyfomi3bYwBT5pv6vvrQDkZA_CckfSUHg0s16OgNgWGgQ8QNVHdriXgEXAsD6hdNMv3o-etZYDulxR0KcNwB40htkbl8u5QnzBE0aNj_8Z5vmdhxkw_7Jy"
+                                alt="Rizky" class="team-img" /></div>
+                        <div class="team-body">
+                            <h6>Rizky Pratama</h6>
+                            <p>Senior Facilitator</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3 fade-up">
+                    <div class="team-card">
+                        <div style="overflow:hidden"><img
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAicKEzeYri4b94TsaacebgosONxMMaGt7uyBZAihFIziomwo6Kc8x8lGxqawv6lBXAVRTc0mtk5GrLJrfLZ0wvdWICwwLhGLILfM2S4TEN5FjaYKSCGb2qrkbxoNYL37uUrSMeFN_dBW9pClfUcKnf_wtUdANvQrIwWxypjhjLLtTroACWQwl7JvcjAZYNStmtc-w6iIdbr0H1uLBHCSMTJj-NOqMAtF6q_CJyTUbwo49kOuZRWqRhcLWTdC7F8FR3KOSJ8JN_A8Qo"
+                                alt="Dewi" class="team-img" /></div>
+                        <div class="team-body">
+                            <h6>Dewi Larasati</h6>
+                            <p>Event Coordinator</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="py-5 bg-light" style="padding-top:5rem!important;padding-bottom:5rem!important">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-end mb-4 flex-wrap gap-3 fade-up">
+                <div>
+                    <div class="section-label">Galeri Kegiatan</div>
+                    <h2 class="mb-0">Momen Tak Terlupakan</h2>
+                </div>
+                <a href="#" class="fw-bold" style="color:var(--primary);font-size:.88rem">Lihat Semua <i
+                        class="bi bi-arrow-right ms-1"></i></a>
+            </div>
+            <div class="row g-3" style="height:500px">
+                <div class="col-md-6 h-100 fade-up">
+                    <div class="gallery-item h-100">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYcJRg04swtXY_uSSMjpADeiCMFYJPtnNq48YdTs3UPNpmLxWssRVOfXICqlFx1EPruAKjvzPUiKHQ-xZtMf0nVWV762briSFcVyoG3pGt53qg3PwivPy7_dsNtt56IjSfdRh1RSCLJ1lFXa2TB9-jX7OlAha6N5FfU2XOWoJOxoJjuMAyOqH2KsDXTmhPSgThTqqKQPdqLku7c_I0hqSSTCNnfDwbG0TdW-j4RzeHYBPxRCMTId_kot51A4eXnMTijC9ffnBEiBVW"
+                            alt="Rafting" style="width:100%;height:100%;object-fit:cover" />
+                    </div>
+                </div>
+                <div class="col-md-6 h-100">
+                    <div class="row g-3 h-100">
+                        <div class="col-6" style="height:50%">
+                            <div class="gallery-item h-100"><img
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6QxBtSpcedHjMCrZrfYsutmROwnaJIRBqBXEFVcQ9KOpwWQGkmJIWA6dKCI-NYVnH5FJ1eWrfAjXKE0sgWwHmKkX5rkmBEVqIZeDH71yIsYwZoKXqUKEPl5ZcXAjmeP2qSQF2vbqXbu-ow9VcQT4IawGGWidkIw_2_DKH0zxdEn7kdrQz03Z2b8kZxra7TBG3gbAiMTl-EOjH3CWt-ouWwBszPDtTECuKhK7KjC30yo_LeBc3yOExAaN9ND8oJpAjM1_qrFScrgEC"
+                                    alt="Camping" style="width:100%;height:100%;object-fit:cover" /></div>
+                        </div>
+                        <div class="col-6" style="height:50%">
+                            <div class="gallery-item h-100"><img
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbbnsnK0FHgZExZm6xi7062ww0uRiS9kgFjUQGQcpvvUUFmB9eiNhA67HpN8oUgROZfkoA8gLI7vZEuGgGUPfexZKsYNQvj8IKKg0JTIVCBemodk42HPxLzlGKZnHGux1M6wBu0uxpDaPzhKUMfoZdDwzdy4A_GGq6ovwnDmIe-u9dSMaq83rS6XyPS-ATw6rw4LpjN-Ie8r5TKwZJ-v9-IMaqU4LvCkfek8VCTbfCaDPyLCtfbcTfnqgeakEmM3-5piyNGAdH8pFw"
+                                    alt="Paintball" style="width:100%;height:100%;object-fit:cover" /></div>
+                        </div>
+                        <div class="col-12" style="height:50%">
+                            <div class="gallery-item h-100"><img
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMl1jL9PI7tPSF4V3LgOXezTlBzML-fp3EQBd2RIXEDYr7FLBZ9H31IavUAXF_LmWekg07ge7md3JE-Xk4DIEGfzzHshd5HVuFkOe9C1cKnLL4wfcFd1I1oV1cIl5LNygZAHITfK9BeLb73_0mMHJcG1Hchhg8E5pfMwzZW_Zo3_nAofEotdrClCKYTvScWGtxpWnJo4FCmdy_jh_Aol6z13_QFZABNAXOFtXEV9zvGPGcN6idwbWcjCjKcytJ5P10gy9YMIWXq7cd"
+                                    alt="Corporate" style="width:100%;height:100%;object-fit:cover" /></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats-bar py-5">
+        <div class="container">
+            <div class="row g-4 text-center">
+                <div class="col-6 col-md-3 fade-up">
+                    <div class="stat-num">500+</div>
+                    <div class="stat-lbl">Event Sukses</div>
+                </div>
+                <div class="col-6 col-md-3 fade-up">
+                    <div class="stat-num">50+</div>
+                    <div class="stat-lbl">Perusahaan Klien</div>
+                </div>
+                <div class="col-6 col-md-3 fade-up">
+                    <div class="stat-num">100%</div>
+                    <div class="stat-lbl">Kepuasan</div>
+                </div>
+                <div class="col-6 col-md-3 fade-up">
+                    <div class="stat-num">12th</div>
+                    <div class="stat-lbl">Pengalaman</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section py-5 text-center" style="padding-top:5rem!important;padding-bottom:5rem!important">
+        <div class="container position-relative" style="z-index:2">
+            <h2 class="text-white fw-bold mb-3">Siap Untuk Petualangan Seru?</h2>
+            <p class="text-white mb-5" style="opacity:.9;max-width:520px;margin:auto;line-height:1.7">Hubungi kami
+                sekarang untuk mendapatkan penawaran spesial paket wisata dan outbound di Batu Malang.</p>
+            <a href="https://wa.me/62895639068080" target="_blank" class="btn-cta-w">
+                <i class="fab fa-whatsapp" style="font-size:1.4rem;color:#25D366"></i>Chat WhatsApp Sekarang
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer pt-5">
+        <div class="container py-4">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <div class="brand-icon"><i class="bi bi-tree-fill"></i></div>
+                        <span
+                            style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:1.15rem;color:#fff">Outbound
+                            Batu</span>
+                    </div>
+                    <p>Provider layanan wisata dan outbound terpercaya di Batu Malang. Menciptakan momen tak terlupakan.
+                    </p>
+                    <div class="d-flex gap-2 mt-3">
+                        <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-btn"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <h5 class="mb-4">Navigasi</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html">Home</a></li>
+                        <li class="mb-2"><a href="#">Tentang Kami</a></li>
+                        <li class="mb-2"><a href="#">Paket</a></li>
+                        <li class="mb-2"><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <h5 class="mb-4">Layanan</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#">Corporate Gathering</a></li>
+                        <li class="mb-2"><a href="#">Family Outbound</a></li>
+                        <li class="mb-2"><a href="#">Rafting &amp; Paintball</a></li>
+                        <li class="mb-2"><a href="#">Wisata Edukasi</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="mb-4">Kontak</h5>
+                    <div class="fc-item"><i class="bi bi-geo-alt-fill fc-icon"></i><span>Jl. Terusan Wisata No. 1, Batu,
+                            Malang, Jawa Timur</span></div>
+                    <div class="fc-item"><i class="bi bi-telephone-fill fc-icon"></i><span>0895-6390-68080</span></div>
+                    <div class="fc-item"><i class="bi bi-envelope-fill fc-icon"></i><span>info@outboundbatu.com</span>
+                    </div>
+                </div>
+            </div>
+            <hr class="footer-divider mt-5 mb-4" />
+            <p class="text-center footer-ci mb-0">© 2026 Outbound Batu Malang. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Floating Buttons -->
+    <div class="floating-buttons">
+        <button class="top-float" id="btnTop" onclick="scrollToTop()" title="Kembali ke Atas">
+            <i class="bi bi-chevron-up"></i>
+        </button>
+        <a href="https://wa.me/62895639068080" target="_blank" class="wa-float" title="Hubungi Kami via WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const btnTop = document.getElementById('btnTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                btnTop.classList.add('show');
+            } else {
+                btnTop.classList.remove('show');
+            }
+        });
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        function toggleDark() { const h = document.documentElement, i = document.getElementById('darkIcon'); if (h.getAttribute('data-bs-theme') === 'dark') { h.setAttribute('data-bs-theme', 'light'); i.className = 'bi bi-moon-fill' } else { h.setAttribute('data-bs-theme', 'dark'); i.className = 'bi bi-sun-fill' } }
+        const obs = new IntersectionObserver(e => e.forEach(x => { if (x.isIntersecting) x.target.classList.add('visible') }), { threshold: .12 });
+        document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+    </script>
+</body>
+
+</html>
