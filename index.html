@@ -974,11 +974,12 @@
         @media (max-width:991px) {
             .hero {
                 min-height: auto;
-                padding-bottom: 4rem
+                padding-bottom: 4rem;
+                padding-top: 6rem !important
             }
 
             .hero h1 {
-                font-size: 2.8rem
+                font-size: clamp(2rem, 8vw, 2.8rem)
             }
 
             .hero-stats {
@@ -987,17 +988,29 @@
         }
 
         @media (max-width:768px) {
-            section {
-                padding-top: 4rem !important;
-                padding-bottom: 4rem !important
+
+            section,
+            main {
+                padding-top: 3.5rem !important;
+                padding-bottom: 3.5rem !important
+            }
+
+            .container {
+                padding-left: 1.25rem;
+                padding-right: 1.25rem
             }
 
             .hero h1 {
-                font-size: 2.4rem
+                font-size: 2.2rem
             }
 
             .hero p {
-                font-size: 1rem
+                font-size: .95rem;
+                line-height: 1.6
+            }
+
+            .why-img-wrap img {
+                height: 320px
             }
 
             .why-img-badge {
@@ -1009,6 +1022,39 @@
 
             .why-img-badge .badge-num {
                 font-size: 1.6rem
+            }
+
+            .pkg-card-img {
+                height: 160px;
+                font-size: 2.5rem
+            }
+
+            .pkg-card-body {
+                padding: 1.25rem
+            }
+
+            .pkg-card-body h5 {
+                font-size: .95rem
+            }
+
+            .blog-card img {
+                height: 160px
+            }
+
+            .blog-card-body {
+                padding: 1.1rem
+            }
+
+            .blog-card-body h5 {
+                font-size: .9rem
+            }
+
+            .stat-card-wrap .stat-num {
+                font-size: 2.5rem
+            }
+
+            .cta-section h2 {
+                font-size: 1.8rem
             }
 
             .floating-buttons {
@@ -1100,7 +1146,7 @@
         <div class="container">
             <a class="navbar-brand" href="#">
                 <div class="brand-icon"><i class="bi bi-tree-fill"></i></div>
-                Outbound Batu Let's Go
+                Outbound Batu
             </a>
             <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navMenu" aria-label="Toggle navigation">
@@ -1170,12 +1216,12 @@
     </section>
 
     <!-- ══════════════════ WHY US ══════════════════ -->
-    <section class="why-section py-5 py-lg-6" style="padding-top: 6rem !important; padding-bottom: 6rem !important;">
+    <section class="why-section py-5 py-lg-6">
         <div class="container">
-            <div class="row align-items-center g-5">
+            <div class="row align-items-center g-4 g-lg-5">
                 <div class="col-lg-5 fade-up">
                     <div class="why-img-wrap">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCE_R-UDEPrQuF9lkaKD137ogE8_guWFdfstCg-z8n212p-S0d65BRD_e5z0gub2HS5RKMNFPFYiLAwIkjq6fHgbwe2Wg5VJBVkbxq2HCoLs8xIqB3wKSgcUcHjWXS3g4wP6UFAQducU36gUEGMs_n4TGCzFY2K4DgYKHpkmJa82eChdvOv7mIvLIhjZFtW4vb28iWzFVMkAA2T5pxE8NUpGHxrz9uITMS0ub0hZHrOg59-Qdy9L8-qEI0o6EaXH6ewqWpg8rPtFtJM"
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCE_R-UDEPrQuF9lkaKD137ogE8_guWFdfstCg-z8n212p-S0d65BRD_e5z0gub2HS5RKMNFPFYiLAwIkjq6fHgbwe2Wg5VJBVkbxq2HCoLs8xIqB3wKSgcUcHjWXS3g4wP6UFAQducU36gUEGMs_n4TGCzFY2K4DgYKHpkmJa82eChdvOv7mIvLIhjZFtW4vb28iWzFVMkAA2T5pxE8NUpGHxrz9uITMS0ub0hZHrOg59-Qdy9L8-qEI0o6EaXH6ewqWpg8rPtPtFtJM"
                             alt="Tim Fasilitator Outbound Batu Malang Profesional"
                             title="Tim Fasilitator Outbound Batu Malang" loading="lazy" width="800" height="480"
                             decoding="async" />
@@ -1227,15 +1273,14 @@
     </section>
 
     <!-- ══════════════════ PACKAGES ══════════════════ -->
-    <section class="packages-section py-5" id="paket"
-        style="padding-top: 5rem !important; padding-bottom: 5rem !important;">
+    <section class="packages-section py-5" id="paket">
         <div class="container">
             <div class="text-center mb-5 fade-up">
                 <div class="section-label">Layanan Kami</div>
                 <h2>Pilihan Paket Wisata<br>&amp; Outbound</h2>
                 <p class="text-muted mt-2">Pilih paket yang sesuai dengan kebutuhan tim atau keluarga Anda.</p>
             </div>
-            <div class="row g-4">
+            <div class="row g-3 g-lg-4">
                 <!-- Card 1 -->
                 <div class="col-6 col-md-4 fade-up">
                     <div class="pkg-card">
@@ -1286,25 +1331,25 @@
     </section>
 
     <!-- ══════════════════ STATS ══════════════════ -->
-    <section class="stats-section py-5" style="padding-top: 4.5rem !important; padding-bottom: 4.5rem !important;">
+    <section class="stats-section py-5">
         <div class="container">
             <div class="d-flex flex-wrap justify-content-center align-items-stretch gap-0">
-                <div class="col-6 col-md-3 stat-card-wrap py-3 px-4">
+                <div class="col-6 col-md-3 stat-card-wrap py-3 px-3 px-lg-4">
                     <div class="stat-num">500+</div>
                     <div class="stat-label">Event Sukses</div>
                 </div>
                 <div class="stat-divider d-none d-md-block"></div>
-                <div class="col-6 col-md-3 stat-card-wrap py-3 px-4">
+                <div class="col-6 col-md-3 stat-card-wrap py-3 px-3 px-lg-4">
                     <div class="stat-num">50+</div>
                     <div class="stat-label">Perusahaan Klien</div>
                 </div>
                 <div class="stat-divider d-none d-md-block"></div>
-                <div class="col-6 col-md-3 stat-card-wrap py-3 px-4">
+                <div class="col-6 col-md-3 stat-card-wrap py-3 px-3 px-lg-4">
                     <div class="stat-num">100%</div>
                     <div class="stat-label">Kepuasan</div>
                 </div>
                 <div class="stat-divider d-none d-md-block"></div>
-                <div class="col-6 col-md-3 stat-card-wrap py-3 px-4">
+                <div class="col-6 col-md-3 stat-card-wrap py-3 px-3 px-lg-4">
                     <div class="stat-num">10th</div>
                     <div class="stat-label">Pengalaman</div>
                 </div>
@@ -1313,9 +1358,9 @@
     </section>
 
     <!-- ══════════════════ BLOG ══════════════════ -->
-    <section class="blog-section py-5" style="padding-top: 5.5rem !important; padding-bottom: 5.5rem !important;">
+    <section class="blog-section py-5">
         <div class="container">
-            <div class="d-flex justify-content-between align-items-end mb-5 flex-wrap gap-3 fade-up">
+            <div class="d-flex justify-content-between align-items-end mb-4 mb-md-5 flex-wrap gap-3 fade-up">
                 <div>
                     <div class="section-label">Artikel Terbaru</div>
                     <h2 class="mb-0">Tips &amp; Inspirasi Wisata</h2>
@@ -1324,7 +1369,7 @@
                     style="border-color:var(--primary);color:var(--primary);">Lihat Semua <i
                         class="bi bi-arrow-right ms-1"></i></a>
             </div>
-            <div class="row g-4">
+            <div class="row g-3 g-lg-4">
                 <div class="col-6 col-md-4 fade-up">
                     <div class="blog-card h-100">
                         <div style="overflow:hidden">
@@ -1387,8 +1432,7 @@
     </section>
 
     <!-- ══════════════════ CTA ══════════════════ -->
-    <section class="cta-section py-5 text-center"
-        style="padding-top: 5rem !important; padding-bottom: 5rem !important;">
+    <section class="cta-section py-5 text-center">
         <div class="container position-relative" style="z-index:2">
             <h2 class="text-white fw-bold mb-3">Siap Untuk Petualangan Seru?</h2>
             <p class="text-white mb-5" style="opacity:.9; max-width:520px; margin: auto; line-height:1.7;">Hubungi kami
