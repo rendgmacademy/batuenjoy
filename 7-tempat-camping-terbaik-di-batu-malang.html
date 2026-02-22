@@ -57,7 +57,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" />
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <!-- Font Awesome (REMOVED: Using Bootstrap Icons where possible for speed) -->
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet" />
@@ -534,8 +534,6 @@
             margin-top: .15rem
         }
 
-
-
         .cta-section {
             background: linear-gradient(135deg, var(--accent) 0%, #e8621a 100%)
         }
@@ -614,66 +612,64 @@
             color: rgba(255, 255, 255, .75)
         }
 
-        /* ───── RESPONSIVE ───── */
-        @media (max-width: 991px) {
+        @media (max-width:991px) {
             .article-hero {
-                padding: 4rem 0 2.5rem;
+                padding: 4rem 0 2.5rem
             }
 
             .article-main-img {
                 height: 320px;
-                margin-top: -1.5rem;
+                margin-top: -1.5rem
             }
         }
 
-        @media (max-width: 768px) {
+        @media (max-width:768px) {
 
             section,
             main {
                 padding-top: 3rem !important;
-                padding-bottom: 3rem !important;
+                padding-bottom: 3rem !important
             }
 
             .article-main-img {
                 height: 220px;
                 margin: -1rem 0 1.5rem;
-                border-radius: .75rem;
+                border-radius: .75rem
             }
 
             .article-body h2 {
-                font-size: 1.3rem;
+                font-size: 1.3rem
             }
 
             .author-card {
-                padding: 1.5rem;
+                padding: 1.5rem
             }
 
             .floating-buttons {
                 bottom: 1.25rem;
                 right: 1.25rem;
-                gap: 0.75rem;
+                gap: 0.75rem
             }
 
             .wa-float {
                 width: 50px;
                 height: 50px;
-                font-size: 1.4rem;
+                font-size: 1.4rem
             }
 
             .top-float {
                 width: 42px;
                 height: 42px;
-                font-size: 1rem;
+                font-size: 1rem
             }
 
             .toc-card {
                 margin-bottom: 2rem;
                 position: relative;
-                top: 0;
+                top: 0
             }
         }
 
-        /* ───── FLOATING BUTTONS ───── */
         .floating-buttons {
             position: fixed;
             bottom: 2rem;
@@ -681,7 +677,7 @@
             display: flex;
             flex-direction: column;
             gap: 1rem;
-            z-index: 1050;
+            z-index: 1050
         }
 
         .wa-float {
@@ -695,13 +691,13 @@
             color: #fff;
             font-size: 1.8rem;
             box-shadow: 0 6px 25px rgba(37, 211, 102, .4);
-            transition: all .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all .3s cubic-bezier(0.175, 0.885, 0.32, 1.275)
         }
 
         .wa-float:hover {
             transform: scale(1.1) translateY(-3px);
             box-shadow: 0 12px 35px rgba(37, 211, 102, .5);
-            color: #fff;
+            color: #fff
         }
 
         .top-float {
@@ -720,19 +716,19 @@
             transition: all .3s ease;
             opacity: 0;
             visibility: hidden;
-            cursor: pointer;
+            cursor: pointer
         }
 
         .top-float.show {
             opacity: 1;
-            visibility: visible;
+            visibility: visible
         }
 
         .top-float:hover {
             background: var(--primary);
             color: #fff;
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(15, 77, 53, 0.2);
+            box-shadow: 0 8px 20px rgba(15, 77, 53, 0.2)
         }
     </style>
 </head>
@@ -747,7 +743,7 @@
                 Outbound Batu Let's Go
             </a>
             <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navMenu">
+                data-bs-target="#navMenu" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navMenu">
@@ -758,8 +754,8 @@
                     <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
                 </ul>
                 <div class="d-flex align-items-center gap-3 mt-3 mt-lg-0">
-                    <button class="dark-toggle" onclick="toggleDark()"><i class="bi bi-moon-fill"
-                            id="darkIcon"></i></button>
+                    <button class="dark-toggle" onclick="toggleDark()" aria-label="Ganti Tema Gelap/Terang"><i
+                            class="bi bi-moon-fill" id="darkIcon"></i></button>
                     <a href="https://wa.me/62895639068080" target="_blank" class="btn-nav">HUBUNGI KAMI</a>
                 </div>
             </div>
@@ -791,7 +787,8 @@
                 <div class="col-lg-8 fade-up">
                     <div class="article-content">
                         <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB93s1H0pSymtspZylAF7RMwf__mBSc4mlrZPyBlpvSrUop_M5yIXOXmSgJIQPKNYBzPe290APVWUI2sO9h76K68gbGVxXUM6RESNVoZBiQjuYjOlRhoo6Q4jCr1wg3vkZrUm2QEBnNlNkBZchjH_NpHC2CqwJ6cVeQz7bJFmBl4P_-qVChIOPruuhlN5wawT22AYuzXTx2oZrj7sSGOhYzTmj9urImzVTCqwlG1HY71_L_rQp51TKQ51znW3urtosFu0KLjuL2ufiP"
-                            alt="Camping di Batu Malang" class="article-main-img" />
+                            alt="Camping di Batu Malang" class="article-main-img" width="800" height="420"
+                            fetchpriority="high" />
 
                         <div class="article-body">
                             <p>Batu Malang dikenal sebagai destinasi wisata alam yang memukau dengan pemandangan
@@ -806,7 +803,6 @@
                                 ditemui di tempat lain.</p>
 
                             <h2 id="rekomendasi">7 Rekomendasi Tempat Camping Terbaik</h2>
-
                             <h3>1. Coban Rondo Camping Ground</h3>
                             <p>Terletak di kawasan wisata Coban Rondo, camping ground ini menawarkan suasana hutan pinus
                                 yang sejuk dengan suara gemuruh air terjun sebagai latar belakangnya. Fasilitas lengkap
@@ -881,11 +877,13 @@
                             <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
                                 <span style="font-weight:700;font-size:.9rem">Bagikan Artikel:</span>
                                 <div class="share-box">
-                                    <a href="#" class="share-btn"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#" class="share-btn"><i class="fab fa-twitter"></i></a>
-                                    <a href="#" class="share-btn"><i class="fab fa-whatsapp"></i></a>
-                                    <a href="#" class="share-btn"><i class="fab fa-linkedin-in"></i></a>
-                                    <button class="share-btn"
+                                    <a href="#" class="share-btn" aria-label="Bagikan ke Facebook"><i
+                                            class="bi bi-facebook"></i></a>
+                                    <a href="#" class="share-btn" aria-label="Bagikan ke Twitter"><i
+                                            class="bi bi-twitter-x"></i></a>
+                                    <a href="#" class="share-btn" aria-label="Bagikan ke WhatsApp"><i
+                                            class="bi bi-whatsapp"></i></a>
+                                    <button class="share-btn" aria-label="Salin Tautan"
                                         onclick="navigator.clipboard.writeText(window.location.href)"><i
                                             class="bi bi-link-45deg"></i></button>
                                 </div>
@@ -917,82 +915,76 @@
             <div class="mt-5 pt-4 fade-up">
                 <h3 class="mb-4">Artikel Terkait</h3>
                 <div class="row g-4">
-                    <div class="col-6 col-md-4">
-                        <a href="serunya-rafting-di-sungai-brantas.html" class="text-decoration-none">
+                    <div class="col-6 col-md-4"><a href="serunya-rafting-di-sungai-brantas.html"
+                            class="text-decoration-none">
                             <div class="related-card">
                                 <div style="overflow:hidden"><img
                                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8G1eWkI-mb4UkxjezZXUYE0pJGAr8ah0p1U8s9KLDNuRbzSQhc0rYalKPqr1qTgz4VV-qpuEQ1URsmqUi0vgr-LVpoBwRVGzztrvEbJcQEin6JOSLnhXDgNR6aQXkEXoNFHIWf5d4Fu6VowB7lDTDMCS3KEJBbZyhD1ezQP-V-cMdxxL6rKyuvGaNTpSqTeCxu2zCNSpf76WFcK4nXnado6MGkkvuJuWVoZCb-G_6tmsD-loiO-euRQ1F74BnvEgvSpAni6jS1bjQ"
-                                        alt="Rafting" /></div>
+                                        alt="Rafting" width="400" height="200" loading="lazy" /></div>
                                 <div class="related-card-body"><span class="cat-badge mb-2"
                                         style="background:var(--primary-ultra);color:var(--primary)">Adventure</span>
                                     <h5>Serunya Rafting di Sungai Brantas</h5><span class="btn-read">Baca <i
                                             class="bi bi-arrow-right"></i></span>
                                 </div>
                             </div>
-                        </a>
-                    </div>
-                    <div class="col-6 col-md-4">
-                        <a href="tips-memilih-paket-jeep-adventure.html" class="text-decoration-none">
+                        </a></div>
+                    <div class="col-6 col-md-4"><a href="tips-memilih-paket-jeep-adventure.html"
+                            class="text-decoration-none">
                             <div class="related-card">
                                 <div style="overflow:hidden"><img
                                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuClv4DpKKRQxXS7FMn3pxPXHBDvStv81SfoVko-MZbDNZEyUFQhGYOdO1ed10yNZi0MZmawwU-ExsZG6w5lWkyk1KLk9Qqfl3FcnllJURh_iByABkyBUuChfLLbkp_MAvL6T9g9Fd30Jnh4-OxM3V3Y_hysWB06wjD-h0Xly_yyV2UBBqR0N9p4mguzVrXzB9_Md1sLZ80gfhdqP4_ESJyZ7NpDdUELAxeX1chr30G6qfFwYiR_b1OhZQCscXvya-qE5wbAv7cHn1S7"
-                                        alt="Jeep Adventure" /></div>
+                                        alt="Jeep Adventure" width="400" height="200" loading="lazy" /></div>
                                 <div class="related-card-body"><span class="cat-badge mb-2"
                                         style="background:var(--primary-ultra);color:var(--primary)">Offroad</span>
                                     <h5>Tips Memilih Paket Jeep Adventure</h5><span class="btn-read">Baca <i
                                             class="bi bi-arrow-right"></i></span>
                                 </div>
                             </div>
-                        </a>
-                    </div>
-                    <div class="col-6 col-md-4">
-                        <a href="wisata-petik-apel-kapan-waktu-terbaik.html" class="text-decoration-none">
+                        </a></div>
+                    <div class="col-6 col-md-4"><a href="wisata-petik-apel-kapan-waktu-best.html"
+                            class="text-decoration-none">
                             <div class="related-card">
                                 <div style="overflow:hidden"><img
                                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEMckFUj_bK1G-m1WiWNLPYZyZr7DrN51_8Tx51HHJCU219PGMQWRrWxjW5SCmKKEEwNkyjimNNfmSHRHVIQHGBer1sGi7Xe9p3I5rlyi_D8mxduy9lJmklAmqX-fTMFZgE5AxDxgkCMWXuZR8fvOzCRoy5I1vPrtksoFwCrIB7HDCid2rwdvobtqo6Z_bt1cXDCQ61MFOBu-DNZjO0XLKfGiFpMRoOvIIoAe49SOSHa5E4N8EMZ6yJifgcGdrTApWnUBu1yiz8r5Y"
-                                        alt="Petik Apel" /></div>
+                                        alt="Petik Apel" width="400" height="200" loading="lazy" /></div>
                                 <div class="related-card-body"><span class="cat-badge mb-2"
                                         style="background:var(--primary-ultra);color:var(--primary)">Agrowisata</span>
                                     <h5>Wisata Petik Apel: Kapan Waktu Terbaik?</h5><span class="btn-read">Baca <i
                                             class="bi bi-arrow-right"></i></span>
                                 </div>
                             </div>
-                        </a>
-                    </div>
+                        </a></div>
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- CTA -->
     <section class="cta-section py-5 text-center mt-5" style="padding-top:5rem!important;padding-bottom:5rem!important">
         <div class="container">
             <h2 class="text-white fw-bold mb-3">Mau Camping Seru di Batu?</h2>
             <p class="text-white mb-5" style="opacity:.9;max-width:520px;margin:auto;line-height:1.7">Hubungi kami untuk
-                paket camping lengkap termasuk peralatan, guide, and transportasi!</p>
-            <a href="https://wa.me/62895639068080" target="_blank" class="btn-cta-w"><i class="fab fa-whatsapp"
+                paket camping lengkap termasuk peralatan, guide, and transportasi!</p><a
+                href="https://wa.me/62895639068080" target="_blank" class="btn-cta-w"><i class="bi bi-whatsapp"
                     style="font-size:1.4rem;color:#25D366"></i>Chat WhatsApp Sekarang</a>
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer class="footer pt-5">
         <div class="container py-4">
             <div class="row g-5">
                 <div class="col-lg-4">
                     <div class="d-flex align-items-center gap-2 mb-3">
-                        <div class="brand-icon"><i class="bi bi-tree-fill"></i></div>
-                        <span
+                        <div class="brand-icon"><i class="bi bi-tree-fill"></i></div><span
                             style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:1.15rem;color:#fff">Outbound
                             Batu</span>
                     </div>
-                    <p>Provider layanan wisata dan outbound terpercaya di Batu Malang. Menciptakan momen tak terlupakan.
+                    <p>Provider layanan wisata and outbound terpercaya di Batu Malang. Menciptakan momen tak terlupakan.
                     </p>
                     <div class="d-flex gap-2 mt-3">
-                        <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
-                        <a href="#" class="social-btn"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="social-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-btn" aria-label="Youtube"><i class="bi bi-youtube"></i></a>
+                        <a href="#" class="social-btn" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
                     </div>
                 </div>
                 <div class="col-6 col-lg-2">
@@ -1018,8 +1010,8 @@
                     <div class="fc-item"><i class="bi bi-geo-alt-fill fc-icon"></i><span>Jl. Terusan Wisata No. 1, Batu,
                             Malang, Jawa Timur</span></div>
                     <div class="fc-item"><i class="bi bi-telephone-fill fc-icon"></i><span>0895-6390-68080</span></div>
-                    <div class="fc-item"><i class="bi bi-envelope-fill fc-icon"></i><span>halo@paketoutboundbatu.vercel.app</span>
-                    </div>
+                    <div class="fc-item"><i
+                            class="bi bi-envelope-fill fc-icon"></i><span>halo@paketoutboundbatu.vercel.app</span></div>
                 </div>
             </div>
             <hr class="footer-divider mt-5 mb-4" />
@@ -1029,12 +1021,10 @@
 
     <!-- Floating Buttons -->
     <div class="floating-buttons">
-        <button class="top-float" id="btnTop" onclick="scrollToTop()" title="Kembali ke Atas">
-            <i class="bi bi-chevron-up"></i>
-        </button>
-        <a href="https://wa.me/62895639068080" target="_blank" class="wa-float" title="Hubungi Kami via WhatsApp">
-            <i class="fab fa-whatsapp"></i>
-        </a>
+        <button class="top-float" id="btnTop" onclick="scrollToTop()" title="Kembali ke Atas"><i
+                class="bi bi-chevron-up"></i></button>
+        <a href="https://wa.me/62895639068080" target="_blank" class="wa-float" aria-label="WhatsApp"
+            title="Hubungi Kami via WhatsApp"><i class="bi bi-whatsapp"></i></a>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
@@ -1050,8 +1040,20 @@
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-        function toggleDark() { const h = document.documentElement, i = document.getElementById('darkIcon'); if (h.getAttribute('data-bs-theme') === 'dark') { h.setAttribute('data-bs-theme', 'light'); i.className = 'bi bi-moon-fill' } else { h.setAttribute('data-bs-theme', 'dark'); i.className = 'bi bi-sun-fill' } }
-        const obs = new IntersectionObserver(e => e.forEach(x => { if (x.isIntersecting) x.target.classList.add('visible') }), { threshold: .12 });
+        function toggleDark() {
+            const h = document.documentElement,
+                i = document.getElementById('darkIcon');
+            if (h.getAttribute('data-bs-theme') === 'dark') {
+                h.setAttribute('data-bs-theme', 'light');
+                i.className = 'bi bi-moon-fill'
+            } else {
+                h.setAttribute('data-bs-theme', 'dark');
+                i.className = 'bi bi-sun-fill'
+            }
+        }
+        const obs = new IntersectionObserver(e => e.forEach(x => {
+            if (x.isIntersecting) x.target.classList.add('visible')
+        }), { threshold: .12 });
         document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
     </script>
 </body>

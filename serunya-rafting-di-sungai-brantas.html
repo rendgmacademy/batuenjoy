@@ -53,10 +53,9 @@
       "datePublished": "2026-02-10"
     }
     </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" />
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <!-- Font Awesome (REMOVED: Using Bootstrap Icons where possible for speed) -->
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet" />
@@ -533,8 +532,6 @@
             margin-top: .15rem
         }
 
-
-
         .cta-section {
             background: linear-gradient(135deg, var(--accent) 0%, #e8621a 100%)
         }
@@ -613,66 +610,64 @@
             color: rgba(255, 255, 255, .75)
         }
 
-        /* ───── RESPONSIVE ───── */
-        @media (max-width: 991px) {
+        @media (max-width:991px) {
             .article-hero {
-                padding: 4rem 0 2.5rem;
+                padding: 4rem 0 2.5rem
             }
 
             .article-main-img {
                 height: 320px;
-                margin-top: -1.5rem;
+                margin-top: -1.5rem
             }
         }
 
-        @media (max-width: 768px) {
+        @media (max-width:768px) {
 
             section,
             main {
                 padding-top: 3rem !important;
-                padding-bottom: 3rem !important;
+                padding-bottom: 3rem !important
             }
 
             .article-main-img {
                 height: 220px;
                 margin: -1rem 0 1.5rem;
-                border-radius: .75rem;
+                border-radius: .75rem
             }
 
             .article-body h2 {
-                font-size: 1.3rem;
+                font-size: 1.3rem
             }
 
             .author-card {
-                padding: 1.5rem;
+                padding: 1.5rem
             }
 
             .floating-buttons {
                 bottom: 1.25rem;
                 right: 1.25rem;
-                gap: 0.75rem;
+                gap: 0.75rem
             }
 
             .wa-float {
                 width: 50px;
                 height: 50px;
-                font-size: 1.4rem;
+                font-size: 1.4rem
             }
 
             .top-float {
                 width: 42px;
                 height: 42px;
-                font-size: 1rem;
+                font-size: 1rem
             }
 
             .toc-card {
                 margin-bottom: 2rem;
                 position: relative;
-                top: 0;
+                top: 0
             }
         }
 
-        /* ───── FLOATING BUTTONS ───── */
         .floating-buttons {
             position: fixed;
             bottom: 2rem;
@@ -680,7 +675,7 @@
             display: flex;
             flex-direction: column;
             gap: 1rem;
-            z-index: 1050;
+            z-index: 1050
         }
 
         .wa-float {
@@ -694,13 +689,13 @@
             color: #fff;
             font-size: 1.8rem;
             box-shadow: 0 6px 25px rgba(37, 211, 102, .4);
-            transition: all .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all .3s cubic-bezier(0.175, 0.885, 0.32, 1.275)
         }
 
         .wa-float:hover {
             transform: scale(1.1) translateY(-3px);
             box-shadow: 0 12px 35px rgba(37, 211, 102, .5);
-            color: #fff;
+            color: #fff
         }
 
         .top-float {
@@ -719,19 +714,19 @@
             transition: all .3s ease;
             opacity: 0;
             visibility: hidden;
-            cursor: pointer;
+            cursor: pointer
         }
 
         .top-float.show {
             opacity: 1;
-            visibility: visible;
+            visibility: visible
         }
 
         .top-float:hover {
             background: var(--primary);
             color: #fff;
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(15, 77, 53, 0.2);
+            box-shadow: 0 8px 20px rgba(15, 77, 53, 0.2)
         }
 
         .fade-up {
@@ -757,7 +752,7 @@
                 Outbound Batu Let's Go
             </a>
             <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navMenu">
+                data-bs-target="#navMenu" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navMenu">
@@ -768,8 +763,8 @@
                     <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
                 </ul>
                 <div class="d-flex align-items-center gap-3 mt-3 mt-lg-0">
-                    <button class="dark-toggle" onclick="toggleDark()"><i class="bi bi-moon-fill"
-                            id="darkIcon"></i></button>
+                    <button class="dark-toggle" onclick="toggleDark()" aria-label="Ganti Tema Gelap/Terang"><i
+                            class="bi bi-moon-fill" id="darkIcon"></i></button>
                     <a href="https://wa.me/62895639068080" target="_blank" class="btn-nav">HUBUNGI KAMI</a>
                 </div>
             </div>
@@ -801,7 +796,8 @@
                 <div class="col-lg-8 fade-up">
                     <div class="article-content">
                         <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8G1eWkI-mb4UkxjezZXUYE0pJGAr8ah0p1U8s9KLDNuRbzSQhc0rYalKPqr1qTgz4VV-qpuEQ1URsmqUi0vgr-LVpoBwRVGzztrvEbJcQEin6JOSLnhXDgNR6aQXkEXoNFHIWf5d4Fu6VowB7lDTDMCS3KEJBbZyhD1ezQP-V-cMdxxL6rKyuvGaNTpSqTeCxu2zCNSpf76WFcK4nXnado6MGkkvuJuWVoZCb-b_6tmsD-loiO-euRQ1F74BnvEgvSpAni6jS1bjQ"
-                            alt="Rafting di Sungai Brantas Batu Malang" class="article-main-img" />
+                            alt="Rafting di Sungai Brantas Batu Malang" class="article-main-img" width="800"
+                            height="420" fetchpriority="high" />
 
                         <div class="article-body">
                             <p>Siapa bilang Batu Malang hanya menawarkan wisata alam yang tenang? Di balik keindahan
@@ -901,11 +897,13 @@
                             <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
                                 <span style="font-weight:700;font-size:.9rem">Bagikan Artikel:</span>
                                 <div class="share-box">
-                                    <a href="#" class="share-btn"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#" class="share-btn"><i class="fab fa-twitter"></i></a>
-                                    <a href="#" class="share-btn"><i class="fab fa-whatsapp"></i></a>
-                                    <a href="#" class="share-btn"><i class="fab fa-linkedin-in"></i></a>
-                                    <button class="share-btn"
+                                    <a href="#" class="share-btn" aria-label="Bagikan ke Facebook"><i
+                                            class="bi bi-facebook"></i></a>
+                                    <a href="#" class="share-btn" aria-label="Bagikan ke Twitter"><i
+                                            class="bi bi-twitter-x"></i></a>
+                                    <a href="#" class="share-btn" aria-label="Bagikan ke WhatsApp"><i
+                                            class="bi bi-whatsapp"></i></a>
+                                    <button class="share-btn" aria-label="Salin Tautan"
                                         onclick="navigator.clipboard.writeText(window.location.href)"><i
                                             class="bi bi-link-45deg"></i></button>
                                 </div>
@@ -945,7 +943,7 @@
                             <div class="related-card">
                                 <div style="overflow:hidden"><img
                                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaVjedggBUKxfbtp4ix5755lUSwvbyPwbd3D8-MsPiFw4_5L-PCpckII14yPcj3jeqYO9cAFZVzTgFANp6h21jEXnHWm5z9qqJ24g14qh4g-V6Oxf8mePiQBN8A9XGWTFeuUmq9u0r5e_0bBTl8H6oOtdROZH-TE-vO5zAurLuBqZf2CUgVjTEXnsh26nm3OZ28RMQK5z7gVU6z5SZ6Rsp22vbdWnwGylUCKOjnI7H29KyK28y-ng0t8AvPM8V3_NFN6IRIfO3rfEJ"
-                                        alt="" /></div>
+                                        alt="Team Building Outbound" width="400" height="200" loading="lazy" /></div>
                                 <div class="related-card-body"><span class="cat-badge mb-2"
                                         style="background:var(--primary-ultra);color:var(--primary)">Corporate</span>
                                     <h5>Manfaat Team Building untuk Produktivitas</h5><span class="btn-read">Baca <i
@@ -958,7 +956,7 @@
                             <div class="related-card">
                                 <div style="overflow:hidden"><img
                                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuClv4DpKKRQxXS7FMn3pxPXHBDvStv81SfoVko-MZbDNZEyUFQhGYOdO1ed10yNZi0MZmawwU-ExsZG6w5lWkyk1KLk9Qqfl3FcnllJURh_iByABkyBUuChfLLbkp_MAvL6T9g9Fd30Jnh4-OxM3V3Y_hysWB06wjD-h0Xly_yyV2UBBqR0N9p4mguzVrXzB9_Md1sLZ80gfhdqP4_ESJyZ7NpDdUELAxeX1chr30G6qfFwYiR_b1OhZQCscXvya-qE5wbAv7cHn1S7"
-                                        alt="" /></div>
+                                        alt="Jeep Adventure" width="400" height="200" loading="lazy" /></div>
                                 <div class="related-card-body"><span class="cat-badge mb-2"
                                         style="background:var(--primary-ultra);color:var(--primary)">Offroad</span>
                                     <h5>Tips Memilih Paket Jeep Adventure</h5><span class="btn-read">Baca <i
@@ -971,7 +969,7 @@
                             <div class="related-card">
                                 <div style="overflow:hidden"><img
                                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuB93s1H0pSymtspZylAF7RMwf__mBSc4mlrZPyBlpvSrUop_M5yIXOXmSgJIQPKNYBzPe290APVWUI2sO9h76K68gbGVxXUM6RESNVoZBiQjuYjOlRhoo6Q4jCr1wg3vkZrUm2QEBnNlNkBZchjH_NpHC2CqwJ6cVeQz7bJFmBl4P_-qVChIOPruuhlN5wawT22AYuzXTx2oZrj7sSGOhYzTmj9urImzVTCqwlG1HY71_L_rQp51TKQ51znW3urtosFu0KLjuL2ufiP"
-                                        alt="" /></div>
+                                        alt="Camping Terbaik" width="400" height="200" loading="lazy" /></div>
                                 <div class="related-card-body"><span class="cat-badge mb-2"
                                         style="background:var(--primary-ultra);color:var(--primary)">Camping</span>
                                     <h5>7 Tempat Camping Terbaik di Batu</h5><span class="btn-read">Baca <i
@@ -989,7 +987,7 @@
             <h2 class="text-white fw-bold mb-3">Siap Mengacu Adrenalin?</h2>
             <p class="text-white mb-5" style="opacity:.9;max-width:520px;margin:auto;line-height:1.7">Hubungi kami untuk
                 paket rafting seru di Sungai Brantas dengan fasilitas lengkap and aman!</p><a
-                href="https://wa.me/62895639068080" target="_blank" class="btn-cta-w"><i class="fab fa-whatsapp"
+                href="https://wa.me/62895639068080" target="_blank" class="btn-cta-w"><i class="bi bi-whatsapp"
                     style="font-size:1.4rem;color:#25D366"></i>Chat WhatsApp Sekarang</a>
         </div>
     </section>
@@ -1007,10 +1005,10 @@
                     <p>Provider layanan wisata dan outbound terpercaya di Batu Malang. Menciptakan momen tak terlupakan.
                     </p>
                     <div class="d-flex gap-2 mt-3">
-                        <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
-                        <a href="#" class="social-btn"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="social-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-btn" aria-label="Youtube"><i class="bi bi-youtube"></i></a>
+                        <a href="#" class="social-btn" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
                     </div>
                 </div>
                 <div class="col-6 col-lg-2">
@@ -1036,7 +1034,8 @@
                     <div class="fc-item"><i class="bi bi-geo-alt-fill fc-icon"></i><span>Jl. Terusan Wisata No. 1, Batu,
                             Malang, Jawa Timur</span></div>
                     <div class="fc-item"><i class="bi bi-telephone-fill fc-icon"></i><span>0895-6390-68080</span></div>
-                    <div class="fc-item"><i class="bi bi-envelope-fill fc-icon"></i><span>halo@paketoutboundbatu.vercel.app</span>
+                    <div class="fc-item"><i
+                            class="bi bi-envelope-fill fc-icon"></i><span>halo@paketoutboundbatu.vercel.app</span>
                     </div>
                 </div>
             </div>
@@ -1050,8 +1049,9 @@
         <button class="top-float" id="btnTop" onclick="scrollToTop()" title="Kembali ke Atas">
             <i class="bi bi-chevron-up"></i>
         </button>
-        <a href="https://wa.me/62895639068080" target="_blank" class="wa-float" title="Hubungi Kami via WhatsApp">
-            <i class="fab fa-whatsapp"></i>
+        <a href="https://wa.me/62895639068080" target="_blank" class="wa-float" aria-label="WhatsApp"
+            title="Hubungi Kami via WhatsApp">
+            <i class="bi bi-whatsapp"></i>
         </a>
     </div>
 

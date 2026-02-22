@@ -56,10 +56,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" />
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet" />
     <style>
         :root {
             --primary: #0f4d35;
@@ -154,7 +150,9 @@
         }
 
         .btn-nav:hover {
-            background: var(--primary-light)
+            background: var(--primary-light);
+            box-shadow: 0 6px 20px rgba(15, 77, 53, .35);
+            transform: translateY(-1px)
         }
 
         .dark-toggle {
@@ -168,7 +166,8 @@
             justify-content: center;
             color: var(--primary);
             font-size: 1rem;
-            cursor: pointer
+            cursor: pointer;
+            transition: .2s
         }
 
         .article-hero {
@@ -187,12 +186,18 @@
 
         .article-hero h1 {
             font-size: clamp(1.8rem, 4vw, 2.8rem);
+            letter-spacing: -.02em;
             line-height: 1.15
         }
 
         .breadcrumb-custom a {
             color: rgba(255, 255, 255, .7);
-            font-size: .85rem
+            font-size: .85rem;
+            transition: .2s
+        }
+
+        .breadcrumb-custom a:hover {
+            color: #fff
         }
 
         .breadcrumb-custom span {
@@ -207,7 +212,8 @@
             font-size: .75rem;
             font-weight: 700;
             padding: .25rem .75rem;
-            border-radius: 100px
+            border-radius: 100px;
+            letter-spacing: .04em
         }
 
         .article-meta {
@@ -324,6 +330,7 @@
             color: var(--muted);
             font-size: .84rem;
             font-weight: 500;
+            transition: .2s;
             display: flex;
             align-items: center;
             gap: .5rem
@@ -334,7 +341,9 @@
             width: 6px;
             height: 6px;
             background: var(--border);
-            border-radius: 50%
+            border-radius: 50%;
+            flex-shrink: 0;
+            transition: .2s
         }
 
         .toc-card ul li a:hover {
@@ -458,7 +467,8 @@
 
         .footer ul li a {
             color: rgba(255, 255, 255, .55);
-            font-size: .875rem
+            font-size: .875rem;
+            transition: .2s
         }
 
         .footer ul li a:hover {
@@ -512,8 +522,6 @@
             margin-top: .15rem
         }
 
-
-
         .cta-section {
             background: linear-gradient(135deg, var(--accent) 0%, #e8621a 100%)
         }
@@ -544,7 +552,8 @@
         }
 
         [data-bs-theme="dark"] .navbar {
-            background: rgba(13, 17, 23, .95) !important
+            background: rgba(13, 17, 23, .95) !important;
+            border-bottom-color: rgba(255, 255, 255, .08)
         }
 
         [data-bs-theme="dark"] .navbar-brand {
@@ -558,6 +567,15 @@
         [data-bs-theme="dark"] .article-body h2 {
             color: #6ee7b7;
             border-bottom-color: rgba(255, 255, 255, .08)
+        }
+
+        [data-bs-theme="dark"] .article-body blockquote {
+            background: rgba(255, 251, 240, .05);
+            color: #d1d5db
+        }
+
+        [data-bs-theme="dark"] .tip-box {
+            background: rgba(230, 242, 236, .08)
         }
 
         [data-bs-theme="dark"] .toc-card,
@@ -582,66 +600,64 @@
             color: rgba(255, 255, 255, .75)
         }
 
-        /* ───── RESPONSIVE ───── */
-        @media (max-width: 991px) {
+        @media (max-width:991px) {
             .article-hero {
-                padding: 4rem 0 2.5rem;
+                padding: 4rem 0 2.5rem
             }
 
             .article-main-img {
                 height: 320px;
-                margin-top: -1.5rem;
+                margin-top: -1.5rem
             }
         }
 
-        @media (max-width: 768px) {
+        @media (max-width:768px) {
 
             section,
             main {
                 padding-top: 3rem !important;
-                padding-bottom: 3rem !important;
+                padding-bottom: 3rem !important
             }
 
             .article-main-img {
                 height: 220px;
                 margin: -1rem 0 1.5rem;
-                border-radius: .75rem;
+                border-radius: .75rem
             }
 
             .article-body h2 {
-                font-size: 1.3rem;
+                font-size: 1.3rem
             }
 
             .author-card {
-                padding: 1.5rem;
+                padding: 1.5rem
             }
 
             .floating-buttons {
                 bottom: 1.25rem;
                 right: 1.25rem;
-                gap: 0.75rem;
+                gap: 0.75rem
             }
 
             .wa-float {
                 width: 50px;
                 height: 50px;
-                font-size: 1.4rem;
+                font-size: 1.4rem
             }
 
             .top-float {
                 width: 42px;
                 height: 42px;
-                font-size: 1rem;
+                font-size: 1rem
             }
 
             .toc-card {
                 margin-bottom: 2rem;
                 position: relative;
-                top: 0;
+                top: 0
             }
         }
 
-        /* ───── FLOATING BUTTONS ───── */
         .floating-buttons {
             position: fixed;
             bottom: 2rem;
@@ -649,7 +665,7 @@
             display: flex;
             flex-direction: column;
             gap: 1rem;
-            z-index: 1050;
+            z-index: 1050
         }
 
         .wa-float {
@@ -663,13 +679,13 @@
             color: #fff;
             font-size: 1.8rem;
             box-shadow: 0 6px 25px rgba(37, 211, 102, .4);
-            transition: all .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all .3s cubic-bezier(0.175, 0.885, 0.32, 1.275)
         }
 
         .wa-float:hover {
             transform: scale(1.1) translateY(-3px);
             box-shadow: 0 12px 35px rgba(37, 211, 102, .5);
-            color: #fff;
+            color: #fff
         }
 
         .top-float {
@@ -688,19 +704,19 @@
             transition: all .3s ease;
             opacity: 0;
             visibility: hidden;
-            cursor: pointer;
+            cursor: pointer
         }
 
         .top-float.show {
             opacity: 1;
-            visibility: visible;
+            visibility: visible
         }
 
         .top-float:hover {
             background: var(--primary);
             color: #fff;
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(15, 77, 53, 0.2);
+            box-shadow: 0 8px 20px rgba(15, 77, 53, 0.2)
         }
 
         .fade-up {
@@ -717,11 +733,17 @@
 </head>
 
 <body>
+    <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg sticky-top">
-        <div class="container"><a class="navbar-brand" href="index.html">
-                <div class="brand-icon"><i class="bi bi-tree-fill"></i></div>Outbound Batu Let's Go
-            </a><button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navMenu"><span class="navbar-toggler-icon"></span></button>
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <div class="brand-icon"><i class="bi bi-tree-fill"></i></div>
+                Outbound Batu Let's Go
+            </a>
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navMenu" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navMenu">
                 <ul class="navbar-nav mx-auto gap-1">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
@@ -729,32 +751,43 @@
                     <li class="nav-item"><a class="nav-link" href="#">Paket</a></li>
                     <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
                 </ul>
-                <div class="d-flex align-items-center gap-3 mt-3 mt-lg-0"><button class="dark-toggle"
-                        onclick="toggleDark()"><i class="bi bi-moon-fill" id="darkIcon"></i></button><a
-                        href="https://wa.me/62895639068080" target="_blank" class="btn-nav">HUBUNGI KAMI</a></div>
+                <div class="d-flex align-items-center gap-3 mt-3 mt-lg-0">
+                    <button class="dark-toggle" onclick="toggleDark()" aria-label="Ganti Tema Gelap/Terang"><i
+                            class="bi bi-moon-fill" id="darkIcon"></i></button>
+                    <a href="https://wa.me/62895639068080" target="_blank" class="btn-nav">HUBUNGI KAMI</a>
+                </div>
             </div>
         </div>
     </nav>
 
+    <!-- ARTICLE HERO -->
     <section class="article-hero">
         <div class="container position-relative" style="z-index:1">
-            <div class="breadcrumb-custom mb-3"><a href="index.html">Home</a><span class="mx-2">/</span><a
-                    href="blog.html">Blog</a><span class="mx-2">/</span><span class="text-white">Artikel</span></div>
+            <div class="breadcrumb-custom mb-3">
+                <a href="index.html">Home</a> <span class="mx-2">/</span>
+                <a href="blog.html">Blog</a> <span class="mx-2">/</span>
+                <span class="text-white">Artikel</span>
+            </div>
             <span class="cat-badge mb-3 d-inline-block">Kuliner</span>
             <h1 class="text-white mb-3">5 Kuliner Legendaris Batu Wajib Coba</h1>
-            <div class="article-meta"><span><i class="bi bi-calendar3"></i>01 Feb 2026</span><span><i
-                        class="bi bi-clock"></i>5 min baca</span><span><i class="bi bi-person"></i>Tim Outbound
-                    Batu</span></div>
+            <div class="article-meta">
+                <span><i class="bi bi-calendar3"></i>01 Feb 2026</span>
+                <span><i class="bi bi-clock"></i>5 min baca</span>
+                <span><i class="bi bi-person"></i>Tim Outbound Batu</span>
+            </div>
         </div>
     </section>
 
+    <!-- ARTICLE CONTENT -->
     <main class="py-5">
         <div class="container">
             <div class="row g-5">
                 <div class="col-lg-8 fade-up">
                     <div class="article-content">
                         <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYKy1OCRiZaHoabs1vblfNxt3gRV1R8Chmj13csO7E0ktDMK-BBzgARerzhuMhgyrOHs0a4TLLwNWxb2718IpeaqJ71_rhhMrzMvszizwk41Cz_eOB2fRK_aLVnkWot9qBHIs5WcdLHZomNb1mNUlfnUsnZoHlI5hwLLjBCmwgqpfpzACH9Q5blE9ObkYND6BIr6cxhVHrREKrM0JDU5W4Asd6jXAvk0RCp5hOsGyrxJvwlDC70KDnuXYKG9CyjJODFfEloIFBy2U0"
-                            alt="Kuliner Batu Malang" class="article-main-img" />
+                            alt="Kuliner Batu Malang" class="article-main-img" width="800" height="420"
+                            fetchpriority="high" />
+
                         <div class="article-body">
                             <p>Setelah seharian menikmati kegiatan outbound di Batu Malang, tentu perut sudah
                                 keroncongan. Jangan khawatir! Kota Batu memiliki deretan kuliner legendaris yang wajib
@@ -814,21 +847,11 @@
                                     adalah oleh-oleh khas Batu</li>
                             </ul>
 
-                            <div class="tip-box"><strong>💡 Bonus Tips:</strong> Minta kami memasukkan wisata kuliner ke
-                                dalam paket outbound Anda! Kami bisa mengatur rute perjalanan yang melewati spot-spot
-                                kuliner terbaik di Batu Malang.</div>
-
-                            <h2 id="oleh-oleh">Oleh-oleh Khas Batu Malang</h2>
-                            <p>Sebelum pulang, jangan lupa beli oleh-oleh khas:</p>
-                            <ol>
-                                <li><strong>Keripik Apel:</strong> Tersedia di pusat oleh-oleh sepanjang Jl. Abdul Gani
-                                    Atas</li>
-                                <li><strong>Dodol Susu:</strong> Lembut dan creamy, dibuat dari susu segar peternakan
-                                    lokal</li>
-                                <li><strong>Sari Apel:</strong> Minuman segar tanpa pengawet</li>
-                                <li><strong>Keripik Tempe:</strong> Renyah dan gurih, berbagai varian rasa</li>
-                                <li><strong>Sirup Rosella:</strong> Kaya antioksidan, bagus untuk kesehatan</li>
-                            </ol>
+                            <div class="tip-box">
+                                <strong>💡 Bonus Tips:</strong> Minta kami memasukkan wisata kuliner ke dalam paket
+                                outbound Anda! Kami bisa mengatur rute perjalanan yang melewati spot-spot kuliner
+                                terbaik di Batu Malang.
+                            </div>
 
                             <p>Nikmati petualangan outbound dan kelezatan kuliner Batu Malang bersama kami. Hubungi tim
                                 Outbound Batu Let's Go untuk paket wisata yang sudah termasuk rekomendasi kuliner
@@ -837,13 +860,17 @@
                             <hr class="my-4" />
                             <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
                                 <span style="font-weight:700;font-size:.9rem">Bagikan Artikel:</span>
-                                <div class="d-flex gap-2"><a href="#" class="share-btn"><i
-                                            class="fab fa-facebook-f"></i></a><a href="#" class="share-btn"><i
-                                            class="fab fa-twitter"></i></a><a href="#" class="share-btn"><i
-                                            class="fab fa-whatsapp"></i></a><a href="#" class="share-btn"><i
-                                            class="fab fa-linkedin-in"></i></a><button class="share-btn"
+                                <div class="share-box">
+                                    <a href="#" class="share-btn" aria-label="Bagikan ke Facebook"><i
+                                            class="bi bi-facebook"></i></a>
+                                    <a href="#" class="share-btn" aria-label="Bagikan ke Twitter"><i
+                                            class="bi bi-twitter-x"></i></a>
+                                    <a href="#" class="share-btn" aria-label="Bagikan ke WhatsApp"><i
+                                            class="bi bi-whatsapp"></i></a>
+                                    <button class="share-btn" aria-label="Salin Tautan"
                                         onclick="navigator.clipboard.writeText(window.location.href)"><i
-                                            class="bi bi-link-45deg"></i></button></div>
+                                            class="bi bi-link-45deg"></i></button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -852,8 +879,8 @@
                         <h5 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:1rem">Tim
                             Outbound Batu</h5>
                         <p style="font-size:.88rem;color:var(--muted);max-width:500px;margin:auto">Tim profesional di
-                            Outbound Batu Let's Go yang berpengalaman dalam merancang program outbound dan wisata di
-                            Batu Malang.</p>
+                            Outbound Batu Let's Go yang berpengalaman dalam merancang program outbound dan wisata alam
+                            di Batu Malang.</p>
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -877,7 +904,7 @@
                             <div class="related-card">
                                 <div style="overflow:hidden"><img
                                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEMckFUj_bK1G-m1WiWNLPYZyZr7DrN51_8Tx51HHJCU219PGMQWRrWxjW5SCmKKEEwNkyjimNNfmSHRHVIQHGBer1sGi7Xe9p3I5rlyi_D8mxduy9lJmklAmqX-fTMFZgE5AxDxgkCMWXuZR8fvOzCRoy5I1vPrtksoFwCrIB7HDCid2rwdvobtqo6Z_bt1cXDCQ61MFOBu-DNZjO0XLKfGiFpMRoOvIIoAe49SOSHa5E4N8EMZ6yJifgcGdrTApWnUBu1yiz8r5Y"
-                                        alt="" /></div>
+                                        alt="Wisata Petik Apel" width="400" height="200" loading="lazy" /></div>
                                 <div class="related-card-body"><span class="cat-badge mb-2"
                                         style="background:var(--primary-ultra);color:var(--primary)">Agrowisata</span>
                                     <h5>Wisata Petik Apel: Kapan Waktu Terbaik?</h5><span class="btn-read">Baca <i
@@ -890,7 +917,7 @@
                             <div class="related-card">
                                 <div style="overflow:hidden"><img
                                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIIW0_FAtPaSLXu6vlYDzB5RUpdQ1rpOY45ACKJA0V1xAXU6Z1rRMvvbgfi1TeAtxJWHfG5vm7FRZW2I9U-nNe1pDwnovuRV0jD5WVnrIcBRVRLORsTWiAMkWxUm9trhVLrDG_VaHXG3Lk5sh3JqJH3IcOc72zZPcoQ73lPcdiVCEMj4ZC-9OH34snmkqcO8whUeKzI7QGLtOuLMI4rAFrz2AJTAYeKPHVscy88CqIJNwiGODU1K4PWJIbbRZYURVayoptGole2bo6"
-                                        alt="" /></div>
+                                        alt="Family Gathering" width="400" height="200" loading="lazy" /></div>
                                 <div class="related-card-body"><span class="cat-badge mb-2"
                                         style="background:var(--primary-ultra);color:var(--primary)">Gathering</span>
                                     <h5>Ide Games Seru untuk Family Gathering</h5><span class="btn-read">Baca <i
@@ -903,7 +930,7 @@
                             <div class="related-card">
                                 <div style="overflow:hidden"><img
                                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8G1eWkI-mb4UkxjezZXUYE0pJGAr8ah0p1U8s9KLDNuRbzSQhc0rYalKPqr1qTgz4VV-qpuEQ1URsmqUi0vgr-LVpoBwRVGzztrvEbJcQEin6JOSLnhXDgNR6aQXkEXoNFHIWf5d4Fu6VowB7lDTDMCS3KEJBbZyhD1ezQP-V-cMdxxL6rKyuvGaNTpSqTeCxu2zCNSpf76WFcK4nXnado6MGkkvuJuWVoZCb-G_6tmsD-loiO-euRQ1F74BnvEgvSpAni6jS1bjQ"
-                                        alt="" /></div>
+                                        alt="Rafting" width="400" height="200" loading="lazy" /></div>
                                 <div class="related-card-body"><span class="cat-badge mb-2"
                                         style="background:var(--primary-ultra);color:var(--primary)">Adventure</span>
                                     <h5>Serunya Rafting di Sungai Brantas</h5><span class="btn-read">Baca <i
@@ -921,7 +948,7 @@
             <h2 class="text-white fw-bold mb-3">Mau Wisata Kuliner di Batu?</h2>
             <p class="text-white mb-5" style="opacity:.9;max-width:520px;margin:auto;line-height:1.7">Hubungi kami untuk
                 paket wisata yang sudah termasuk rekomendasi kuliner terbaik!</p><a href="https://wa.me/62895639068080"
-                target="_blank" class="btn-cta-w"><i class="fab fa-whatsapp"
+                target="_blank" class="btn-cta-w"><i class="bi bi-whatsapp"
                     style="font-size:1.4rem;color:#25D366"></i>Chat WhatsApp Sekarang</a>
         </div>
     </section>
@@ -935,12 +962,14 @@
                             style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:1.15rem;color:#fff">Outbound
                             Batu</span>
                     </div>
-                    <p>Provider layanan wisata dan outbound terpercaya di Batu Malang.</p>
-                    <div class="d-flex gap-2 mt-3"><a href="#" class="social-btn"><i
-                                class="fab fa-facebook-f"></i></a><a href="#" class="social-btn"><i
-                                class="fab fa-instagram"></i></a><a href="#" class="social-btn"><i
-                                class="fab fa-youtube"></i></a><a href="#" class="social-btn"><i
-                                class="fab fa-tiktok"></i></a></div>
+                    <p>Provider layanan wisata dan outbound terpercaya di Batu Malang. Menciptakan momen tak terlupakan.
+                    </p>
+                    <div class="d-flex gap-2 mt-3">
+                        <a href="#" class="social-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-btn" aria-label="Youtube"><i class="bi bi-youtube"></i></a>
+                        <a href="#" class="social-btn" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+                    </div>
                 </div>
                 <div class="col-6 col-lg-2">
                     <h5 class="mb-4">Navigasi</h5>
@@ -965,23 +994,21 @@
                     <div class="fc-item"><i class="bi bi-geo-alt-fill fc-icon"></i><span>Jl. Terusan Wisata No. 1, Batu,
                             Malang, Jawa Timur</span></div>
                     <div class="fc-item"><i class="bi bi-telephone-fill fc-icon"></i><span>0895-6390-68080</span></div>
-                    <div class="fc-item"><i class="bi bi-envelope-fill fc-icon"></i><span>halo@paketoutboundbatu.vercel.app</span>
-                    </div>
+                    <div class="fc-item"><i
+                            class="bi bi-envelope-fill fc-icon"></i><span>halo@paketoutboundbatu.vercel.app</span></div>
                 </div>
             </div>
             <hr class="footer-divider mt-5 mb-4" />
-            <p class="text-center footer-ci mb-0">&copy; 2026 Outbound Batu Malang. All Rights Reserved.</p>
+            <p class="text-center footer-ci mb-0">© 2026 Outbound Batu Malang. All Rights Reserved.</p>
         </div>
     </footer>
 
     <!-- Floating Buttons -->
     <div class="floating-buttons">
-        <button class="top-float" id="btnTop" onclick="scrollToTop()" title="Kembali ke Atas">
-            <i class="bi bi-chevron-up"></i>
-        </button>
-        <a href="https://wa.me/62895639068080" target="_blank" class="wa-float" title="Hubungi Kami via WhatsApp">
-            <i class="fab fa-whatsapp"></i>
-        </a>
+        <button class="top-float" id="btnTop" onclick="scrollToTop()" title="Kembali ke Atas"><i
+                class="bi bi-chevron-up"></i></button>
+        <a href="https://wa.me/62895639068080" target="_blank" class="wa-float" aria-label="WhatsApp"
+            title="Hubungi Kami via WhatsApp"><i class="bi bi-whatsapp"></i></a>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
@@ -997,8 +1024,20 @@
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-        function toggleDark() { const h = document.documentElement, i = document.getElementById('darkIcon'); if (h.getAttribute('data-bs-theme') === 'dark') { h.setAttribute('data-bs-theme', 'light'); i.className = 'bi bi-moon-fill' } else { h.setAttribute('data-bs-theme', 'dark'); i.className = 'bi bi-sun-fill' } }
-        const obs = new IntersectionObserver(e => e.forEach(x => { if (x.isIntersecting) x.target.classList.add('visible') }), { threshold: .12 });
+        function toggleDark() {
+            const h = document.documentElement,
+                i = document.getElementById('darkIcon');
+            if (h.getAttribute('data-bs-theme') === 'dark') {
+                h.setAttribute('data-bs-theme', 'light');
+                i.className = 'bi bi-moon-fill'
+            } else {
+                h.setAttribute('data-bs-theme', 'dark');
+                i.className = 'bi bi-sun-fill'
+            }
+        }
+        const obs = new IntersectionObserver(e => e.forEach(x => {
+            if (x.isIntersecting) x.target.classList.add('visible')
+        }), { threshold: .12 });
         document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
     </script>
 </body>
