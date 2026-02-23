@@ -81,24 +81,37 @@
     }
     </script>
 
-    <!-- Performance Optimization -->
+    <!-- Performance Optimization: Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    <link rel="preconnect" href="https://lh3.googleusercontent.com" crossorigin />
     <link rel="preload" as="image"
         href="https://lh3.googleusercontent.com/aida-public/AB6AXuCrqbsmTDO27FeAGZx9QNZdb5wxhS5uvt6zU6oFXQ9veoygVSsNqPWAw2V4D2qBWZgCAjofh19qvoBD5NbjAYEIbbwfirxSX90ofbT7g4dB0q6aMwgMYTuw94g1W_TfRjsREMpT5EmhSeLeWhPaIfw0vKT7eAUBFAGmPcJg5ONCd7Cj-2-Lg23-b5OLWRM6bLmmb4AdG0B-AsRFvwmMnNs92wJaDrr5b2SS9UrbiWmiovS_vQ4f5Udx9lNPUANq2qNnxAtDxWlY1DZZ"
         fetchpriority="high" />
 
-    <!-- Bootstrap 5.3 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" />
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" />
-    <!-- Font Awesome (REMOVED: Using Bootstrap Icons where possible for speed) -->
-    <!-- Google Fonts -->
-    <link
+    <!-- Bootstrap 5.3 (non-blocking) -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" as="style"
+        onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" />
+    </noscript>
+    <!-- Bootstrap Icons (non-blocking) -->
+    <link rel="preload"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" as="style"
+        onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" />
+    </noscript>
+    <!-- Google Fonts (non-blocking) -->
+    <link rel="preload"
         href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet" />
+        as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" />
+    </noscript>
 
     <style>
         :root {
@@ -1136,6 +1149,17 @@
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(15, 77, 53, 0.2)
         }
+
+        /* Performance: content-visibility for below-fold sections */
+        .why-section,
+        .packages-section,
+        .stats-section,
+        .blog-section,
+        .cta-section,
+        .footer {
+            content-visibility: auto;
+            contain-intrinsic-size: auto 500px
+        }
     </style>
 </head>
 
@@ -1355,22 +1379,22 @@
     <section class="stats-section py-5">
         <div class="container">
             <div class="d-flex flex-wrap justify-content-center align-items-stretch gap-0">
-                <div class="col-6 col-md-3 stat-card-wrap py-3 px-3 px-lg-4">
+                <div class="col-6 col-md stat-card-wrap py-3 px-3 px-lg-4">
                     <div class="stat-num">500+</div>
                     <div class="stat-label">Event Sukses</div>
                 </div>
                 <div class="stat-divider d-none d-md-block"></div>
-                <div class="col-6 col-md-3 stat-card-wrap py-3 px-3 px-lg-4">
+                <div class="col-6 col-md stat-card-wrap py-3 px-3 px-lg-4">
                     <div class="stat-num">50+</div>
                     <div class="stat-label">Perusahaan Klien</div>
                 </div>
                 <div class="stat-divider d-none d-md-block"></div>
-                <div class="col-6 col-md-3 stat-card-wrap py-3 px-3 px-lg-4">
+                <div class="col-6 col-md stat-card-wrap py-3 px-3 px-lg-4">
                     <div class="stat-num">100%</div>
                     <div class="stat-label">Kepuasan</div>
                 </div>
                 <div class="stat-divider d-none d-md-block"></div>
-                <div class="col-6 col-md-3 stat-card-wrap py-3 px-3 px-lg-4">
+                <div class="col-6 col-md stat-card-wrap py-3 px-3 px-lg-4">
                     <div class="stat-num">10th</div>
                     <div class="stat-label">Pengalaman</div>
                 </div>
@@ -1569,8 +1593,8 @@
     <script>
         // Dark Mode Toggle
         function toggleDark() {
-            const html = document.documentElement;
-            const icon = document.getElementById('darkIcon');
+            var html = document.documentElement;
+            var icon = document.getElementById('darkIcon');
             if (html.getAttribute('data-bs-theme') === 'dark') {
                 html.setAttribute('data-bs-theme', 'light');
                 icon.className = 'bi bi-moon-fill';
@@ -1580,34 +1604,43 @@
             }
         }
 
-        // Navbar shadow on scroll
-        const nav = document.getElementById('mainNav');
-        const btnTop = document.getElementById('btnTop');
+        // Optimized scroll handler with passive listener & rAF throttle
+        var nav = document.getElementById('mainNav');
+        var btnTop = document.getElementById('btnTop');
+        var ticking = false;
 
-        window.addEventListener('scroll', () => {
-            // Navbar shadow
-            nav.classList.toggle('scrolled', window.scrollY > 20);
-
-            // Show/hide top button
-            if (window.scrollY > 400) {
-                btnTop.classList.add('show');
-            } else {
-                btnTop.classList.remove('show');
+        window.addEventListener('scroll', function () {
+            if (!ticking) {
+                requestAnimationFrame(function () {
+                    var sy = window.scrollY;
+                    nav.classList.toggle('scrolled', sy > 20);
+                    btnTop.classList.toggle('show', sy > 400);
+                    ticking = false;
+                });
+                ticking = true;
             }
-        });
+        }, { passive: true });
 
         function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Fade-up on scroll
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-        }, { threshold: 0.12 });
-        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+        // Defer IntersectionObserver to reduce TBT
+        if ('requestIdleCallback' in window) {
+            requestIdleCallback(function () {
+                var observer = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (e) { if (e.isIntersecting) e.target.classList.add('visible'); });
+                }, { threshold: 0.12 });
+                document.querySelectorAll('.fade-up').forEach(function (el) { observer.observe(el); });
+            });
+        } else {
+            setTimeout(function () {
+                var observer = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (e) { if (e.isIntersecting) e.target.classList.add('visible'); });
+                }, { threshold: 0.12 });
+                document.querySelectorAll('.fade-up').forEach(function (el) { observer.observe(el); });
+            }, 200);
+        }
     </script>
 </body>
 
