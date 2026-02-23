@@ -510,26 +510,64 @@
         }
 
         .wa-float {
-            position: fixed;
-            bottom: 1.75rem;
-            right: 1.75rem;
-            width: 56px;
-            height: 56px;
+            width: 60px;
+            height: 60px;
             background: #25D366;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #fff;
-            font-size: 1.6rem;
-            box-shadow: 0 6px 25px rgba(37, 211, 102, .5);
-            z-index: 999;
-            transition: .2s
+            font-size: 1.8rem;
+            box-shadow: 0 6px 25px rgba(37, 211, 102, .4);
+            transition: all .3s cubic-bezier(0.175, 0.885, 0.32, 1.275)
         }
 
         .wa-float:hover {
-            transform: scale(1.1);
+            transform: scale(1.1) translateY(-3px);
+            box-shadow: 0 12px 35px rgba(37, 211, 102, .5);
             color: #fff
+        }
+
+        .floating-buttons {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 1050
+        }
+
+        .top-float {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all .3s ease;
+            opacity: 0;
+            visibility: hidden;
+            cursor: pointer
+        }
+
+        .top-float.show {
+            opacity: 1;
+            visibility: visible
+        }
+
+        .top-float:hover {
+            background: var(--primary);
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(15, 77, 53, 0.2)
         }
 
         /* DARK */
@@ -924,11 +962,30 @@
         </div>
     </footer>
 
-    <a href="https://wa.me/62895639068080" target="_blank" class="wa-float" aria-label="WhatsApp"><i
-            class="fab fa-whatsapp"></i></a>
+    <!-- Floating Buttons -->
+    <div class="floating-buttons">
+        <button class="top-float" id="btnTop" onclick="scrollToTop()" title="Kembali ke Atas">
+            <i class="bi bi-chevron-up"></i>
+        </button>
+        <a href="https://wa.me/62895639068080" target="_blank" class="wa-float" aria-label="WhatsApp"
+            title="Hubungi Kami via WhatsApp">
+            <i class="bi bi-whatsapp"></i>
+        </a>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
     <script>
+        const btnTop = document.getElementById('btnTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                btnTop.classList.add('show');
+            } else {
+                btnTop.classList.remove('show');
+            }
+        });
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
         function toggleDark() { const h = document.documentElement, i = document.getElementById('darkIcon'); if (h.getAttribute('data-bs-theme') === 'dark') { h.setAttribute('data-bs-theme', 'light'); i.className = 'bi bi-moon-fill' } else { h.setAttribute('data-bs-theme', 'dark'); i.className = 'bi bi-sun-fill' } }
         const obs = new IntersectionObserver(e => e.forEach(x => { if (x.isIntersecting) x.target.classList.add('visible') }), { threshold: .12 });
         document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
