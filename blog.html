@@ -50,14 +50,25 @@
       }
     }
     </script>
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" /></noscript>
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" /></noscript>
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" as="style"
+        onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" />
+    </noscript>
+    <link rel="preload"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" as="style"
+        onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" />
+    </noscript>
     <link rel="preload"
         href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
         as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" /></noscript>
+    <noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" />
+    </noscript>
     <style>
         :root {
             --primary: #0f4d35;
@@ -79,11 +90,22 @@
             scroll-behavior: smooth
         }
 
+        html,
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            color: #1f2937;
-            background: #f9fafb;
-            overflow-x: hidden
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+            max-width: 100%;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        p {
+            overflow-wrap: break-word;
+            word-wrap: break-word;
         }
 
         h1,
@@ -99,7 +121,13 @@
             background: rgba(255, 255, 255, .93) !important;
             backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--border);
-            padding: 1rem 0
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, .08);
+            padding: 0.7rem 0;
         }
 
         .navbar-brand {
@@ -547,6 +575,21 @@
         }
 
         @media (max-width:768px) {
+            .navbar {
+                padding: 0.75rem 0
+            }
+
+            section,
+            main {
+                padding-top: 3.5rem !important;
+                padding-bottom: 3.5rem !important
+            }
+
+            .container {
+                padding-left: 1.25rem;
+                padding-right: 1.25rem
+            }
+
             .blog-hero {
                 padding: 4rem 0 3.5rem
             }
@@ -558,6 +601,33 @@
             .search-wrap {
                 padding: 1.25rem
             }
+
+            .blog-card-img {
+                height: 160px
+            }
+
+            .blog-card-body {
+                padding: 1rem
+            }
+
+            .blog-card-body h5 {
+                font-size: 0.9rem
+            }
+
+            .blog-card-body p {
+                -webkit-line-clamp: 2;
+                line-clamp: 2;
+                font-size: 0.8rem;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+
+            .blog-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.4rem;
+            }
         }
     </style>
 </head>
@@ -565,7 +635,7 @@
 <body>
 
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg sticky-top">
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
         <div class="container">
             <a class="navbar-brand" href="index.html">
                 <div class="brand-icon"><i class="bi bi-tree-fill"></i></div>
@@ -653,7 +723,7 @@
 
             <!-- BLOG GRID -->
             <div class="row g-4">
-                <div class="col-12 col-md-6 col-lg-4 fade-up">
+                <div class="col-6 col-lg-4 fade-up">
                     <div class="blog-card">
                         <div style="overflow:hidden">
                             <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB93s1H0pSymtspZylAF7RMwf__mBSc4mlrZPyBlpvSrUop_M5yIXOXmSgJIQPKNYBzPe290APVWUI2sO9h76K68gbGVxXUM6RESNVoZBiQjuYjOlRhoo6Q4jCr1wg3vkZrUm2QEBnNlNkBZchjH_NpHC2CqwJ6cVeQz7bJFmBl4P_-qVChIOPruuhlN5wawT22AYuzXTx2oZrj7sSGOhYzTmj9urImzVTCqwlG1HY71_L_rQp51TKQ51znW3urtosFu0KLjuL2ufiP"
@@ -672,7 +742,7 @@
                     </div>
                 </div>
                 <!-- Articles continue -->
-                <div class="col-12 col-md-6 col-lg-4 fade-up">
+                <div class="col-6 col-lg-4 fade-up">
                     <div class="blog-card">
                         <div style="overflow:hidden"><img src="image/Rafting di Sungai Brantas Batu Malang.webp"
                                 alt="Rafting Sungai Brantas" class="blog-card-img" width="400" height="250"
@@ -687,7 +757,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-4 fade-up">
+                <div class="col-6 col-lg-4 fade-up">
                     <div class="blog-card">
                         <div style="overflow:hidden"><img
                                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuClv4DpKKRQxXS7FMn3pxPXHBDvStv81SfoVko-MZbDNZEyUFQhGYOdO1ed10yNZi0MZmawwU-ExsZG6w5lWkyk1KLk9Qqfl3FcnllJURh_iByABkyBUuChfLLbkp_MAvL6T9g9Fd30Jnh4-OxM3V3Y_hysWB06wjD-h0Xly_yyV2UBBqR0N9p4mguzVrXzB9_Md1sLZ80gfhdqP4_ESJyZ7NpDdUELAxeX1chr30G6qfFwYiR_b1OhZQCscXvya-qE5wbAv7cHn1S7"
@@ -703,7 +773,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-4 fade-up">
+                <div class="col-6 col-lg-4 fade-up">
                     <div class="blog-card">
                         <div style="overflow:hidden"><img
                                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYKy1OCRiZaHoabs1vblfNxt3gRV1R8Chmj13csO7E0ktDMK-BBzgARerzhuMhgyrOHs0a4TLLwNWxb2718IpeaqJ71_rhhMrzMvszizwk41Cz_eOB2fRK_aLVnkWot9qBHIs5WcdLHZomNb1mNUlfnUsnZoHlI5hwLLjBCmwgqpfpzACH9Q5blE9ObkYND6BIr6cxhVHrREKrM0JDU5W4Asd6jXAvk0RCp5hOsGyrxJvwlDC70KDnuXYKG9CyjJODFfEloIFBy2U0"
@@ -719,7 +789,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-4 fade-up">
+                <div class="col-6 col-lg-4 fade-up">
                     <div class="blog-card">
                         <div style="overflow:hidden"><img
                                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIIW0_FAtPaSLXu6vlYDzB5RUpdQ1rpOY45ACKJA0V1xAXU6Z1rRMvvbgfi1TeAtxJWHfG5vm7FRZW2I9U-nNe1pDwnovuRV0jD5WVnrIcBRVRLORsTWiAMkWxUm9trhVLrDG_VaHXG3Lk5sh3JqJH3IcOc72zZPcoQ73lPcdiVCEMj4ZC-9OH34snmkqcO8whUeKzI7QGLtOuLMI4rAFrz2AJTAYeKPHVscy88CqIJNwiGODU1K4PWJIbbRZYURVayoptGole2bo6"
@@ -735,7 +805,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-4 fade-up">
+                <div class="col-6 col-lg-4 fade-up">
                     <div class="blog-card">
                         <div style="overflow:hidden"><img
                                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEMckFUj_bK1G-m1WiWNLPYZyZr7DrN51_8Tx51HHJCU219PGMQWRrWxjW5SCmKKEEwNkyjimNNfmSHRHVIQHGBer1sGi7Xe9p3I5rlyi_D8mxduy9lJmklAmqX-fTMFZgE5AxDxgkCMWXuZR8fvOzCRoy5I1vPrtksoFwCrIB7HDCid2rwdvobtqo6Z_bt1cXDCQ61MFOBu-DNZjO0XLKfGiFpMRoOvIIoAe49SOSHa5E4N8EMZ6yJifgcGdrTApWnUBu1yiz8r5Y"
@@ -842,9 +912,12 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
     <script>
+        const nav = document.getElementById('mainNav');
         const btnTop = document.getElementById('btnTop');
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 400) {
+            const sy = window.scrollY;
+            nav.classList.toggle('scrolled', sy > 20);
+            if (sy > 400) {
                 btnTop.classList.add('show');
             } else {
                 btnTop.classList.remove('show');

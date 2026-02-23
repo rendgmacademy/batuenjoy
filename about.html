@@ -91,11 +91,22 @@
             scroll-behavior: smooth
         }
 
+        html,
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            color: #1f2937;
-            background: #f9fafb;
-            overflow-x: hidden
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+            max-width: 100%;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        p {
+            overflow-wrap: break-word;
+            word-wrap: break-word;
         }
 
         h1,
@@ -111,7 +122,13 @@
             background: rgba(255, 255, 255, .93) !important;
             backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--border);
-            padding: 1rem 0
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, .08);
+            padding: 0.7rem 0;
         }
 
         .navbar-brand {
@@ -389,18 +406,42 @@
         .gallery-item {
             border-radius: 1rem;
             overflow: hidden;
-            position: relative
+            position: relative;
+            background: #eee;
         }
 
         .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform .5s
+            transition: transform .5s;
+            display: block;
         }
 
-        .gallery-item:hover img {
-            transform: scale(1.05)
+        .gallery-item.main {
+            height: 508px;
+        }
+
+        .gallery-item.sub {
+            height: 246px;
+        }
+
+        .gallery-item.wide {
+            height: 246px;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-item.main {
+                height: 260px;
+            }
+
+            .gallery-item.sub {
+                height: 160px;
+            }
+
+            .gallery-item.wide {
+                height: 160px;
+            }
         }
 
         /* STATS */
@@ -636,6 +677,21 @@
         }
 
         @media (max-width:768px) {
+            .navbar {
+                padding: 0.75rem 0
+            }
+
+            section,
+            main {
+                padding-top: 3.5rem !important;
+                padding-bottom: 3.5rem !important
+            }
+
+            .container {
+                padding-left: 1.25rem;
+                padding-right: 1.25rem
+            }
+
             .about-img {
                 height: 320px
             }
@@ -647,6 +703,14 @@
                 padding: 1.1rem;
                 font-size: .82rem
             }
+
+            .team-img {
+                height: 200px
+            }
+
+            .stat-num {
+                font-size: 2.2rem
+            }
         }
     </style>
 </head>
@@ -654,7 +718,7 @@
 <body>
 
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg sticky-top">
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
         <div class="container">
             <a class="navbar-brand" href="index.html">
                 <div class="brand-icon"><i class="bi bi-tree-fill"></i></div>
@@ -859,30 +923,32 @@
                 <a href="#" class="fw-bold" style="color:var(--primary);font-size:.88rem">Lihat Semua <i
                         class="bi bi-arrow-right ms-1"></i></a>
             </div>
-            <div class="row g-3" style="height:500px">
-                <div class="col-md-6 h-100 fade-up">
-                    <div class="gallery-item h-100">
+            <div class="row g-2 g-md-3">
+                <div class="col-12 col-md-6 fade-up">
+                    <div class="gallery-item main">
                         <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYcJRg04swtXY_uSSMjpADeiCMFYJPtnNq48YdTs3UPNpmLxWssRVOfXICqlFx1EPruAKjvzPUiKHQ-xZtMf0nVWV762briSFcVyoG3pGt53qg3PwivPy7_dsNtt56IjSfdRh1RSCLJ1lFXa2TB9-jX7OlAha6N5FfU2XOWoJOxoJjuMAyOqH2KsDXTmhPSgThTqqKQPdqLku7c_I0hqSSTCNnfDwbG0TdW-j4RzeHYBPxRCMTId_kot51A4eXnMTijC9ffnBEiBVW"
-                            alt="Rafting" style="width:100%;height:100%;object-fit:cover" width="600" height="500"
-                            loading="lazy" decoding="async" />
+                            alt="Rafting" width="600" height="500" loading="lazy" decoding="async" />
                     </div>
                 </div>
-                <div class="col-md-6 h-100">
-                    <div class="row g-3 h-100">
-                        <div class="col-6" style="height:50%">
-                            <div class="gallery-item h-100"><img
-                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6QxBtSpcedHjMCrZrfYsutmROwnaJIRBqBXEFVcQ9KOpwWQGkmJIWA6dKCI-NYVnH5FJ1eWrfAjXKE0sgWwHmKkX5rkmBEVqIZeDH71yIsYwZoKXqUKEPl5ZcXAjmeP2qSQF2vbqXbu-ow9VcQT4IawGGWidkIw_2_DKH0zxdEn7kdrQz03Z2b8kZxra7TBG3gbAiMTl-EOjH3CWt-ouWwBszPDtTECuKhK7KjC30yo_LeBc3yOExAaN9ND8oJpAjM1_qrFScrgEC"
-                                    alt="Camping" style="width:100%;height:100%;object-fit:cover" /></div>
+                <div class="col-12 col-md-6">
+                    <div class="row g-2 g-md-3 h-100">
+                        <div class="col-6">
+                            <div class="gallery-item sub fade-up">
+                                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6QxBtSpcedHjMCrZrfYsutmROwnaJIRBqBXEFVcQ9KOpwWQGkmJIWA6dKCI-NYVnH5FJ1eWrfAjXKE0sgWwHmKkX5rkmBEVqIZeDH71yIsYwZoKXqUKEPl5ZcXAjmeP2qSQF2vbqXbu-ow9VcQT4IawGGWidkIw_2_DKH0zxdEn7kdrQz03Z2b8kZxra7TBG3gbAiMTl-EOjH3CWt-ouWwBszPDtTECuKhK7KjC30yo_LeBc3yOExAaN9ND8oJpAjM1_qrFScrgEC"
+                                    alt="Camping" loading="lazy" />
+                            </div>
                         </div>
-                        <div class="col-6" style="height:50%">
-                            <div class="gallery-item h-100"><img
-                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbbnsnK0FHgZExZm6xi7062ww0uRiS9kgFjUQGQcpvvUUFmB9eiNhA67HpN8oUgROZfkoA8gLI7vZEuGgGUPfexZKsYNQvj8IKKg0JTIVCBemodk42HPxLzlGKZnHGux1M6wBu0uxpDaPzhKUMfoZdDwzdy4A_GGq6ovwnDmIe-u9dSMaq83rS6XyPS-ATw6rw4LpjN-Ie8r5TKwZJ-v9-IMaqU4LvCkfek8VCTbfCaDPyLCtfbcTfnqgeakEmM3-5piyNGAdH8pFw"
-                                    alt="Paintball" style="width:100%;height:100%;object-fit:cover" /></div>
+                        <div class="col-6">
+                            <div class="gallery-item sub fade-up">
+                                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbbnsnK0FHgZExZm6xi7062ww0uRiS9kgFjUQGQcpvvUUFmB9eiNhA67HpN8oUgROZfkoA8gLI7vZEuGgGUPfexZKsYNQvj8IKKg0JTIVCBemodk42HPxLzlGKZnHGux1M6wBu0uxpDaPzhKUMfoZdDwzdy4A_GGq6ovwnDmIe-u9dSMaq83rS6XyPS-ATw6rw4LpjN-Ie8r5TKwZJ-v9-IMaqU4LvCkfek8VCTbfCaDPyLCtfbcTfnqgeakEmM3-5piyNGAdH8pFw"
+                                    alt="Paintball" loading="lazy" />
+                            </div>
                         </div>
-                        <div class="col-12" style="height:50%">
-                            <div class="gallery-item h-100"><img
-                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMl1jL9PI7tPSF4V3LgOXezTlBzML-fp3EQBd2RIXEDYr7FLBZ9H31IavUAXF_LmWekg07ge7md3JE-Xk4DIEGfzzHshd5HVuFkOe9C1cKnLL4wfcFd1I1oV1cIl5LNygZAHITfK9BeLb73_0mMHJcG1Hchhg8E5pfMwzZW_Zo3_nAofEotdrClCKYTvScWGtxpWnJo4FCmdy_jh_Aol6z13_QFZABNAXOFtXEV9zvGPGcN6idwbWcjCjKcytJ5P10gy9YMIWXq7cd"
-                                    alt="Corporate" style="width:100%;height:100%;object-fit:cover" /></div>
+                        <div class="col-12">
+                            <div class="gallery-item wide fade-up">
+                                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMl1jL9PI7tPSF4V3LgOXezTlBzML-fp3EQBd2RIXEDYr7FLBZ9H31IavUAXF_LmWekg07ge7md3JE-Xk4DIEGfzzHshd5HVuFkOe9C1cKnLL4wfcFd1I1oV1cIl5LNygZAHITfK9BeLb73_0mMHJcG1Hchhg8E5pfMwzZW_Zo3_nAofEotdrClCKYTvScWGtxpWnJo4FCmdy_jh_Aol6z13_QFZABNAXOFtXEV9zvGPGcN6idwbWcjCjKcytJ5P10gy9YMIWXq7cd"
+                                    alt="Corporate" loading="lazy" />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -992,9 +1058,12 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
     <script>
+        const nav = document.getElementById('mainNav');
         const btnTop = document.getElementById('btnTop');
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 400) {
+            const sy = window.scrollY;
+            nav.classList.toggle('scrolled', sy > 20);
+            if (sy > 400) {
                 btnTop.classList.add('show');
             } else {
                 btnTop.classList.remove('show');

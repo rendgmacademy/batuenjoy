@@ -56,10 +56,18 @@
       "datePublished": "2026-02-01"
     }
     </script>
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" /></noscript>
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" /></noscript>
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" as="style"
+        onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" />
+    </noscript>
+    <link rel="preload"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" as="style"
+        onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" />
+    </noscript>
     <style>
         :root {
             --primary: #0f4d35;
@@ -80,11 +88,22 @@
             scroll-behavior: smooth
         }
 
+        html,
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            color: #1f2937;
-            background: #f9fafb;
-            overflow-x: hidden
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+            max-width: 100%;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        p {
+            overflow-wrap: break-word;
+            word-wrap: break-word;
         }
 
         h1,
@@ -103,7 +122,13 @@
             background: rgba(255, 255, 255, .93) !important;
             backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--border);
-            padding: 1rem 0
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, .08);
+            padding: 0.7rem 0;
         }
 
         .navbar-brand {
@@ -616,11 +641,14 @@
         }
 
         @media (max-width:768px) {
+            .navbar {
+                padding: 0.75rem 0
+            }
 
             section,
             main {
-                padding-top: 3rem !important;
-                padding-bottom: 3rem !important
+                padding-top: 3.5rem !important;
+                padding-bottom: 3.5rem !important
             }
 
             .container {
@@ -633,7 +661,9 @@
             }
 
             .article-meta {
-                gap: 0.75rem;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
                 font-size: 0.8rem
             }
 
@@ -684,6 +714,23 @@
                 position: relative;
                 top: 0;
                 padding: 1.25rem
+            }
+
+            .related-card img {
+                height: 120px
+            }
+
+            .related-card-body {
+                padding: 0.8rem
+            }
+
+            .related-card-body h5 {
+                font-size: 0.8rem;
+                -webkit-line-clamp: 2;
+                line-clamp: 2;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
             }
         }
 
@@ -763,7 +810,7 @@
 
 <body>
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg sticky-top">
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
         <div class="container">
             <a class="navbar-brand" href="index.html">
                 <div class="brand-icon"><i class="bi bi-tree-fill"></i></div>
@@ -1042,9 +1089,12 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
     <script>
+        const nav = document.getElementById('mainNav');
         const btnTop = document.getElementById('btnTop');
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 400) {
+            const sy = window.scrollY;
+            nav.classList.toggle('scrolled', sy > 20);
+            if (sy > 400) {
                 btnTop.classList.add('show');
             } else {
                 btnTop.classList.remove('show');

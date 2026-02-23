@@ -141,11 +141,22 @@
             scroll-behavior: smooth
         }
 
+        html,
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            color: #1f2937;
-            background: #f9fafb;
-            overflow-x: hidden
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+            max-width: 100%;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        p {
+            overflow-wrap: break-word;
+            word-wrap: break-word;
         }
 
         h1,
@@ -1001,6 +1012,9 @@
         }
 
         @media (max-width:768px) {
+            .navbar {
+                padding: 0.75rem 0
+            }
 
             section,
             main {
@@ -1060,6 +1074,21 @@
 
             .blog-card-body h5 {
                 font-size: .9rem
+            }
+
+            .blog-card-body p {
+                -webkit-line-clamp: 2;
+                line-clamp: 2;
+                font-size: 0.8rem;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+
+            .blog-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.4rem;
             }
 
             .stat-card-wrap .stat-num {
